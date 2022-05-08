@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { User } from '../shared/user.entity';
 import { UsersService } from '../shared/services/users.service';
 
@@ -35,7 +34,7 @@ export class UsersManagementComponent implements OnInit {
       { field: 'lastName', header: 'Last name' },
       { field: 'username', header: 'Username' },
       { field: 'email', header: 'Email' },
-      { fileId: 'role', header: 'role' },
+      { fileId: 'role', header: 'Role' },
       { field: 'actions', header: 'Actions' },
     ]
   }
@@ -45,7 +44,6 @@ export class UsersManagementComponent implements OnInit {
       .subscribe(
         (users: User[]) => {
           this.users = users;
-          console.log(this.users);
 
         }
       )
@@ -66,7 +64,16 @@ export class UsersManagementComponent implements OnInit {
 
   public handleChangeRole() {
     this.userToEdit.role = this.role;
-    console.log(this.userToEdit);
+    this.userService.changeRole(this.userToEdit.id, this.userToEdit.role)
+      .subscribe(
+        (res) => {
+          this.isOpenChangeRoleDialog = false;
+          this.getUsers();
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
     
   }
 
@@ -74,9 +81,6 @@ export class UsersManagementComponent implements OnInit {
     this.role = role;
     this.userToEdit.id = id;
     this.userToEdit.role = role;
-    console.log(role);
-    console.log(this.userToEdit);
-    
     this.isOpenChangeRoleDialog = true;
   }
 

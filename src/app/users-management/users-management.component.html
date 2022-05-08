@@ -27,8 +27,9 @@
 </p-table>
 
 <p-dialog header="Change role" [(visible)]="isOpenChangeRoleDialog" (onHide)="handleHide()" [modal]="true">
-	<p>Current role: {{role}}</p>
-	<p-dropdown  name="Role" [options]="roles" [(ngModel)]="role"></p-dropdown>
+	<p-radioButton name="groupname" value="USER" label="USER" [(ngModel)]="role"></p-radioButton>
+	<br>
+	<p-radioButton name="groupname" value="ADMIN" label="ADMIN" [(ngModel)]="role"></p-radioButton>
 
 	<br><br>
 	<button pButton pRipple type="button" label="Save" (click)="handleChangeRole()" icon="pi p-button-raised" class="p-button-danger"></button>

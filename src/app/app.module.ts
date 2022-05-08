@@ -22,6 +22,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import {FileUploadModule} from 'primeng/fileupload';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     InputTextModule,
     DropdownModule, 
     DialogModule,
-    FileUploadModule
+    FileUploadModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
