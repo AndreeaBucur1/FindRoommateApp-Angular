@@ -9,6 +9,8 @@ import { RegisterService } from '../register.service';
 })
 export class ActivateAccountComponent implements OnInit {
 
+  private token: string = "";
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private registerService: RegisterService,
@@ -17,21 +19,26 @@ export class ActivateAccountComponent implements OnInit {
     const token = this.activatedRoute.params
     .subscribe(
       (params: Params) => {
-        this.registerService.activateAccount(params['token'])
-        .subscribe(
-          (res) => {
-            this.router.navigate(["login"]);      
-          },
-          (err) => {
-            console.log(err);
-            
-          }
-        )
+        this.token = params['token'];
       }
     )
   }
 
   ngOnInit(): void {
+    this.activateAccount();
+  }
+
+  public activateAccount(): void {
+    this.registerService.activateAccount(this.token)
+      .subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+          
+        }
+      )
   }
 
 }
