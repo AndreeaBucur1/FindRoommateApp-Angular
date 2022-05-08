@@ -23,7 +23,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import {FileUploadModule} from 'primeng/fileupload';
 import {RadioButtonModule} from 'primeng/radiobutton';
-
+import {MenubarModule} from 'primeng/menubar';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     ActivateAccountComponent,
     UserProfileComponent,
     UploadProfilePictureComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     DropdownModule, 
     DialogModule,
     FileUploadModule,
-    RadioButtonModule
+    RadioButtonModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

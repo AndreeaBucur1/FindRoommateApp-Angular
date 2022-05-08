@@ -31,9 +31,10 @@ export class LoginComponent implements OnInit {
     const loginDTO: LoginDTO = new LoginDTO(this.loginForm.value.username, this.loginForm.value.password)
     this.loginService.login(loginDTO)
       .subscribe(
-        (res: { token: string }) => {
+        (res: { token: string, role: string }) => {
           sessionStorage.setItem("token", res.token);
-          sessionStorage.setItem("username", this.loginForm.value.username)
+          sessionStorage.setItem("username", this.loginForm.value.username);
+          sessionStorage.setItem("role", res.role)
           this.router.navigate(['profile']);
         },
         (err) => {
