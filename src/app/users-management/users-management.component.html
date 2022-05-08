@@ -1,0 +1,35 @@
+<br><br>
+<p-table styleClass="p-datatable-striped" [columns]="columns" [value]="users">
+	<ng-template pTemplate="header">
+		<tr>
+			<th *ngFor="let column of columns">
+				{{column.header}}
+			</th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-user>
+		<tr>
+			<td>{{user.firstName}}</td>
+			<td>{{user.lastName}}</td>
+			<td>{{user.username}}</td>
+			<td>{{user.email}}</td>
+			<td>{{user.role}}</td>
+			<td>
+				<button pButton pRipple (click)="deleteById(user.id)" type="button" icon="pi pi-trash"
+					class="p-button-danger"></button>
+				<button pButton pRipple (click)="openChangeRoleDialog(user.id, user.role)" type="button"
+					icon="pi pi-user-edit" class="p-button-raised p-button-text"></button>
+
+			</td>
+
+		</tr>
+	</ng-template>
+</p-table>
+
+<p-dialog header="Change role" [(visible)]="isOpenChangeRoleDialog" (onHide)="handleHide()" [modal]="true">
+	<p>Current role: {{role}}</p>
+	<p-dropdown  name="Role" [options]="roles" [(ngModel)]="role"></p-dropdown>
+
+	<br><br>
+	<button pButton pRipple type="button" label="Save" (click)="handleChangeRole()" icon="pi p-button-raised" class="p-button-danger"></button>
+</p-dialog>

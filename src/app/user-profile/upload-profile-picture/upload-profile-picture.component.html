@@ -1,0 +1,5 @@
+<form (ngSubmit)="uploadPhoto()" method="POST" enctype="multipart/form-data">
+    <input type="file" (change)="setImage($event)" />
+    <button pButton pRipple type="submit" label="Upload" icon="pi pi-upload"
+        class="p-button-primary"></button>
+</form>

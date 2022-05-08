@@ -1,0 +1,23 @@
+<form [formGroup]="registerForm!" (ngSubmit)="handleSubmitForm()" class="center">
+    <h1>Register</h1>
+    <br>
+
+    <input pInputText  type="text" placeholder="First name" id="firstName" formControlName="firstName" />
+    <br /><br/>
+    
+    <input pInputText  type="text" placeholder="Last name" id="lastName" formControlName="lastName" />
+    <br><br>
+    
+    <input pInputText  type="email" placeholder="Email" id="email" formControlName="email" />
+    <br><br>
+
+    <input pInputText  type="text" placeholder="Username" id="username" formControlName="username" />
+    <br /><br />
+
+    <input pInputText  type="password" placeholder="Password" id="password" formControlName="password" />
+    <br /><br />
+ 
+    <button pButton pRipple type="submit" label="Register" class="p-button-sm p-button-raised "></button>
+
+    <br>
+</form>

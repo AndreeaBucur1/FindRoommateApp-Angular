@@ -1,0 +1,62 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../user.entity';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class UsersService {
+
+  public getOptions = () => {
+    const token = sessionStorage.getItem("token");
+  
+    const options = {
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+            'Content-Type': 'application/json'
+        }
+    }
+    return options
+  }
+
+  public baseUrl = "http://localhost:8080/users";
+
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+
+  public getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.baseUrl, this.getOptions());
+  }
+
+  public deleteById(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/${id}`, this.getOptions());
+  }
+
+  public changeRole(id: number, role: string): void {
+    this.httpClient.post<any>(`${this.baseUrl}/change-role/${id}`, [role], this.getOptions());
+  }
+
+  public getUser(username: string): Observable<User> {
+    return this.httpClient.get<User>(`${this.baseUrl}/user/${username}`, this.getOptions());
+  }
+
+  public uploadProfilePhoto(id: number, photo: any) {
+  
+    const formData = new FormData();
+    formData.append('imageFile', photo);
+    console.log(formData);
+
+    const options = this.getOptions();
+    options.headers['Content-Type'] = 'multipart/form-data';
+    console.log(options);
+    
+    
+    return this.httpClient.put(this.baseUrl + '/' + id +  '/image', formData, options);
+  }
+
+}

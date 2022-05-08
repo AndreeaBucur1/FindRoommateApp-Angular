@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm!" (ngSubmit)="handleSubmitForm()" class="center">
+    <h1>Login</h1>
+
+    <input pInputText  type="text" placeholder="Username" id="username" formControlName="username" />
+
+    <br /><br />
+    <input pInputText  type="password" placeholder="Password" id="password" formControlName="password" />
+
+    <br /><br />
+    <div>
+        <button pButton pRipple type="submit" label="Login" class="p-button-sm p-button-raised "></button>
+        or
+        <button pButton pRipple type="button" [routerLink]="['','register']" label="Sign up" class="p-button-sm p-button-raised "></button>
+    </div>
+    <br>
+    <button pButton pRipple type="button" label="Forgot password" class="p-button-sm p-button-raised p-button-text"></button>
+</form>

@@ -1,7 +1,42 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { LoginComponent } from './authentication/login/login.component';
+import { ActivateAccountComponent } from './authentication/register/activate-account/activate-account.component';
+import { AfterRegistrationComponent } from './authentication/register/after-registration/after-registration.component';
+import { RegisterComponent } from './authentication/register/register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UsersManagementComponent } from './users-management/users-management.component';
+ 
+const routes: Routes = [
+  {
+    path:'',
+    component: LoginComponent
+  },
+  {
+    path:'login',
+    component: LoginComponent
+  },
+  {
+    path:'users',
+    component: UsersManagementComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'successfully-registered',
+    component: AfterRegistrationComponent
+  },
+  {
+    path: 'activate-account/:token',
+    component: ActivateAccountComponent
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
