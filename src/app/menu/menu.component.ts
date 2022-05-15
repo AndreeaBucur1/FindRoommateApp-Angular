@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api'
+import { NavigationEnd, Router } from '@angular/router';
+import { MenuItem } from 'primeng/api'
 import { UserInfoService } from '../shared/services/user-info.service';
 
 @Component({
@@ -9,16 +10,31 @@ import { UserInfoService } from '../shared/services/user-info.service';
 })
 export class MenuComponent implements OnInit {
 
-  public items: MenuItem[];
+  public items: MenuItem[] = [];
 
-  constructor(private userInfoService: UserInfoService) { 
-    this.items = [
-      {label: "Home", routerLink: "/login"},
-      {label: "Profile", routerLink: "/profile"},
-    ]
-    if(sessionStorage.getItem('role') === 'ADMIN') {
-      this.prepareMenuForAdminRole();
-    }
+  public isUserConnected: boolean = false;
+
+  constructor(
+    private userInfoService: UserInfoService,
+    private router: Router
+  ) {
+
+    router.events.subscribe(event => {
+
+      if (event instanceof NavigationEnd) {
+
+        this.items = [
+          { label: "Home", routerLink: "/login" },
+          { label: "Profile", routerLink: "/profile" },
+        ]
+        if (sessionStorage.getItem('role') === 'ADMIN') {
+          this.prepareMenuForAdminRole();
+        }
+      }
+    });
+
+    this.isUserConnected = userInfoService.isUserConnected;
+
   }
 
   ngOnInit(): void {
@@ -26,14 +42,11 @@ export class MenuComponent implements OnInit {
 
   public logout() {
     this.userInfoService.logout();
-  }
-
-  public isUserConnected(): boolean {
-    return this.userInfoService.isUserConnected;
+    sessionStorage.clear();
   }
 
   public prepareMenuForAdminRole() {
-    this.items.push({ label: "Users", routerLink: "/users"})
+    this.items.push({ label: "Users", routerLink: "/users" })
   }
 
 }

@@ -12,19 +12,22 @@ export class UserInfoService {
 
   public user?: User;
 
+  public role: string = '';
+
 
   constructor() {}
 
-  public saveInfo(token: string, user: User) {
+  public saveInfo(token: string, role: string, user?: User) {
     this.isUserConnected = true;
     this.token = token;
     this.user = user;
-    
+    this.role = role;
   }
 
   public logout(): void {
     this.isUserConnected = false;
     this.token = '';
     this.user = undefined;
+    this.role = '';
   }
 }

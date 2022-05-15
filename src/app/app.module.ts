@@ -25,6 +25,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {MenubarModule} from 'primeng/menubar';
 import { MenuComponent } from './menu/menu.component';
+import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MenuComponent } from './menu/menu.component';
     ActivateAccountComponent,
     UserProfileComponent,
     UploadProfilePictureComponent,
-    MenuComponent
+    MenuComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

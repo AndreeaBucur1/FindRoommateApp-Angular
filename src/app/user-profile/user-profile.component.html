@@ -1,23 +1,21 @@
-<div>
-    <div>
-        <ng-container *ngIf="!user.profilePhoto" >
-            <img src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
-        </ng-container>
-        <ng-container *ngIf="user.profilePhoto" >
-            <img src="{'data:image/png;base64', + user.profilePhoto}" />
-        </ng-container>
+<div class="user-profile-page">
+        <div class="profile-photo">
+            <ng-container  *ngIf="!user.profilePhoto" >
+                <img src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
+            </ng-container>
+            <ng-container class="profile-photo" *ngIf="user.profilePhoto" >
+                <img src="{'data:image/png;base64', + user.profilePhoto}" />
+            </ng-container>
+            <div class="upload-image-button">
+                <button  pButton pRipple type="button" title="Change profile photo" (click)="openFileUploadDialog()" icon="pi pi-upload" class="p-button-raised p-button-rounded p-button-outlined" ></button>
+            </div>
+        </div>
         <br>
-    	<button pButton pRipple type="button" (click)="openFileUploadDialog()" label="Upload" icon="pi pi-upload" class="p-button-primary"></button>
-
-
-    </div>
-
-
-    <div>
-        <p>Username: {{user.username}}</p>
-        <p>First name: {{user.firstName}}</p>
-        <p>Last name: {{user.lastName}}</p>
-    </div>
+        <div class="user-details">
+            <p>USERNAME: {{user.username}}</p>
+            <p>FIRST NAME: {{user.firstName}}</p>
+             <p>LAST NAME: {{user.lastName}}</p>
+        </div>
 </div>
 
 <p-dialog header="Upload profile picture" [(visible)]="isOpenPhotoUploadDialog" >
