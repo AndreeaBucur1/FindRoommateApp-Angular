@@ -24,9 +24,11 @@ export class MenuComponent implements OnInit {
       if (event instanceof NavigationEnd) {
 
         this.items = [
-          { label: "Home", routerLink: "/login" },
-          { label: "Profile", routerLink: "/profile" },
+          { label: "Home", routerLink: "/login" }
         ]
+        if(sessionStorage.getItem('role') !== null) {
+          this.prepareMenuForConnectedUser();
+        }
         if (sessionStorage.getItem('role') === 'ADMIN') {
           this.prepareMenuForAdminRole();
         }
@@ -45,8 +47,14 @@ export class MenuComponent implements OnInit {
     sessionStorage.clear();
   }
 
-  public prepareMenuForAdminRole() {
-    this.items.push({ label: "Users", routerLink: "/users" })
+  public prepareMenuForAdminRole(): void {
+    this.items.push({ label: "Users", routerLink: "/users" });
+    this.items.push({ label: "Sales", routerLink: "/sale" });
+    this.items.push({ label: "Rents", routerLink: "/rent"});
+  }
+
+  public prepareMenuForConnectedUser(): void {
+    this.items.push({ label: "Profile", routerLink: "/profile" });
   }
 
 }

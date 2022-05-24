@@ -4,59 +4,72 @@ import { Observable } from 'rxjs';
 import { User } from '../user.entity';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
 export class UsersService {
 
-  public getOptions = () => {
-    const token = sessionStorage.getItem("token");
-  
-    const options = {
-        headers: {
-            "Authorization": `Bearer ${token}`,
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-            'Content-Type': 'application/json'
-        }
-    }
-    return options
-  }
+	public getOptions = () => {
+		const token = sessionStorage.getItem("token");
 
-  public baseUrl = "http://localhost:8080/users";
+		const options = {
+			headers: {
+				"Authorization": `Bearer ${token}`,
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+				'Content-Type': 'application/json'
+			}
+		}
+		return options
+	}
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+	public baseUrl = "http://localhost:8080/users";
 
-  public getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.baseUrl, this.getOptions());
-  }
+	constructor(
+		private httpClient: HttpClient
+	) { }
 
-  public deleteById(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/${id}`, this.getOptions());
-  }
+	public getUsers(): Observable<User[]> {
+		return this.httpClient.get<User[]>(this.baseUrl, this.getOptions());
+	}
 
-  public changeRole(id: number, role: string): Observable<void> {
-    return this.httpClient.post<any>(`${this.baseUrl}/change-role/${id}`, [role], this.getOptions());
-  }
+	public deleteById(id: number): Observable<any> {
+		return this.httpClient.delete(`${this.baseUrl}/${id}`, this.getOptions());
+	}
 
-  public getUser(username: string): Observable<User> {
-    return this.httpClient.get<User>(`${this.baseUrl}/user/${username}`, this.getOptions());
-  }
+	public changeRole(id: number, role: string): Observable<void> {
+		return this.httpClient.post<any>(`${this.baseUrl}/change-role/${id}`, [role], this.getOptions());
+	}
 
-  public uploadProfilePhoto(id: number, photo: any) {
-  
-    const formData = new FormData();
-    formData.append('imageFile', photo);
-    console.log(formData);
+	public getUser(username: string): Observable<User> {
+		return this.httpClient.get<User>(`${this.baseUrl}/user/${username}`, this.getOptions());
+	}
 
-    const options = this.getOptions();
-    options.headers['Content-Type'] = 'multipart/form-data';
-    console.log(options);
-    
-    
-    return this.httpClient.put(this.baseUrl + '/' + id +  '/image', formData, options);
-  }
+	public uploadProfilePhoto(id: number, photo: any) {
+
+		const formData = new FormData();
+		formData.append('imageFile', photo);
+		console.log(formData);
+
+		const options = this.getOptions();
+		options.headers['Content-Type'] = 'multipart/form-data';
+		console.log(options);
+
+
+		return this.httpClient.put(this.baseUrl + '/' + id + '/image', formData, options);
+	}
+
+
+	public userMapper(user: any): User {
+		return {
+			id: user.userId,
+			firstName: user.firstName,
+			lastName: user.lastName,
+			email: user.email,
+			username: user.username,
+			profilePhoto: user.profilePhoto,
+			role: user.role
+		} as User;
+	}
 
 }

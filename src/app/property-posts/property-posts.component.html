@@ -1,0 +1,42 @@
+<br><br>
+City <p-dropdown [options]="cities" [(ngModel)]="cityFilter" optionLabel="name" optionValue="code" class="p-inputtext-sm" placeholder="Select a city"></p-dropdown>
+Rooms <input type="number" [(ngModel)]="numberOfRoomsFilter" min="0" class="p-inputtext-sm" style="width:50px;" pInputText />
+Minimum surface <input type="number" [(ngModel)]="minSurfaceFilter" min="0" class="p-inputtext-sm" style="width:50px;" pInputText />
+Bathrooms <input type="number" [(ngModel)]="numberOfBathroomsFilter" min="0" class="p-inputtext-sm" style="width:50px;" pInputText />
+Built after <input type="number" [(ngModel)]="minYearFilter" min="1940" class="p-inputtext-sm" style="width:70px;" pInputText />
+Maximum price <input type="number" [(ngModel)]="maxPriceFilter" min="0" class="p-inputtext-sm" style="width:70px;" pInputText />
+<br><br>
+<p-checkbox name="groupname" [binary]="true" [(ngModel)]="hasElevatorFilter"></p-checkbox> Elevator
+<p-checkbox name="groupname" [binary]="true" [(ngModel)]="hasParkingSpotFilter"></p-checkbox> Parking spot
+
+<br><br>
+<ng-container *ngFor="let propertyPost of propertyPosts | filterPropertyPosts : cityFilter : numberOfRoomsFilter : numberOfBathroomsFilter : minSurfaceFilter : minYearFilter : hasElevatorFilter : hasParkingSpotFilter : propertyTypeFilter : maxPriceFilter">
+    <br>
+    <div class="post-box">
+        <ng-container class="property-photo" *ngIf="!propertyPost.photo" >
+            <img class="property-photo" src="https://wearehpi.org/wp-content/uploads/2017/07/No-Photo-Available-Image.jpg" />
+        </ng-container>
+        <ng-container class="property-photo" *ngIf="propertyPost.photo" >
+            <img src="{'data:image/png;base64', + propertyPost.photo}" />
+        </ng-container>
+        <h1 class="post-title">{{propertyPost.title}}</h1>
+        <h3 class="location"><mat-icon>location_on</mat-icon>{{propertyPost.city}}</h3>
+        <div class="info">
+            <div> &nbsp;{{propertyPost.numberOfRooms}} rooms &nbsp;| </div>
+            <div> {{propertyPost.numberOfBathrooms}} bathrooms &nbsp;| </div>
+            <div> {{propertyPost.surface}} m2 &nbsp;| </div>
+            <div> Built in {{propertyPost.buildYear}}&nbsp; </div>
+        </div>
+        <div class="post-info">
+            <h5> Posted by <a href="">{{propertyPost.user?.username}}</a> </h5>
+            <h5>{{propertyPost.creationDate}}</h5>
+        </div>
+        <h2 class="price">{{propertyPost.price}} EUR</h2>
+        <div class="buttons">
+            <button  pButton pRipple type="button" label="Contact owner" class="p-button-raised p-button-text" ></button>  
+            &nbsp;
+            <button  pButton pRipple type="button" label="View details" class="p-button-raised" [routerLink]="['','post',propertyPost.id]"></button>
+        </div>
+    </div>
+
+</ng-container>

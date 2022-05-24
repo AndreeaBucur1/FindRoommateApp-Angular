@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatIconModule} from '@angular/material/icon'
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
@@ -15,7 +18,7 @@ import { ActivateAccountComponent } from './authentication/register/activate-acc
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UploadProfilePictureComponent } from './user-profile/upload-profile-picture/upload-profile-picture.component';
 
-
+import {CheckboxModule} from 'primeng/checkbox';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -24,8 +27,12 @@ import {DialogModule} from 'primeng/dialog';
 import {FileUploadModule} from 'primeng/fileupload';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {MenubarModule} from 'primeng/menubar';
+
 import { MenuComponent } from './menu/menu.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+import { PropertyPostsComponent } from './property-posts/property-posts.component';
+import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
+import { FilterPropertyPostsPipe } from './shared/pipes/filter-property-posts.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +45,10 @@ import { ResetPasswordComponent } from './authentication/reset-password/reset-pa
     UserProfileComponent,
     UploadProfilePictureComponent,
     MenuComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    PropertyPostsComponent,
+    PropertyDetailsComponent,
+    FilterPropertyPostsPipe
   ],
   imports: [
     BrowserModule,
@@ -56,6 +66,10 @@ import { ResetPasswordComponent } from './authentication/reset-password/reset-pa
     FileUploadModule,
     RadioButtonModule,
     MenubarModule,
+    MatIconModule,
+    DropdownModule,
+    InputTextModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

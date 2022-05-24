@@ -1,7 +1,7 @@
 <div class="user-profile-page">
         <div class="profile-photo">
             <ng-container  *ngIf="!user.profilePhoto" >
-                <img src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
+                <img  src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
             </ng-container>
             <ng-container class="profile-photo" *ngIf="user.profilePhoto" >
                 <img src="{'data:image/png;base64', + user.profilePhoto}" />

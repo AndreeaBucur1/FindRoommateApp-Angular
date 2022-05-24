@@ -5,6 +5,8 @@ import { ActivateAccountComponent } from './authentication/register/activate-acc
 import { AfterRegistrationComponent } from './authentication/register/after-registration/after-registration.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
+import { PropertyPostsComponent } from './property-posts/property-posts.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
  
@@ -40,6 +42,18 @@ const routes: Routes = [
   {
     path: 'reset-password/:token',
     component: ResetPasswordComponent
+  },
+  {
+    path: 'rent',
+    component: PropertyPostsComponent,
+  },
+  {
+    path: 'sale',
+    component: PropertyPostsComponent
+  },
+  {
+    path: 'post/:id',
+    component: PropertyDetailsComponent
   }
 ];
 
