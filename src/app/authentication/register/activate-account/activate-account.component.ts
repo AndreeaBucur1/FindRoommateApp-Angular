@@ -32,7 +32,6 @@ export class ActivateAccountComponent implements OnInit {
     this.registerService.activateAccount(this.token)
       .subscribe(
         (response) => {
-          console.log(response);
         },
         (error) => {
           console.log(error);

@@ -1,4 +1,4 @@
-import { User } from "../shared/user.entity";
+import { UserDTO } from "../shared/user.dto";
 
 export class PropertyPost {
 	public id?: number;
@@ -15,7 +15,7 @@ export class PropertyPost {
 	public price: number = 0;
 	public description?: number;
 	public creationDate?: Date | string;
-	public user?: User;
+	public user?: UserDTO;
 	public city?: string;
 	public photo?: string;
 

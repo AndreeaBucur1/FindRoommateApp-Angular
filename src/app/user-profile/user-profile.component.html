@@ -1,25 +1,27 @@
 <div class="user-profile-page">
-        <div class="profile-photo">
-            <ng-container  *ngIf="!user.profilePhoto" >
-                <img  src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
-            </ng-container>
-            <ng-container class="profile-photo" *ngIf="user.profilePhoto" >
-                <img src="{'data:image/png;base64', + user.profilePhoto}" />
-            </ng-container>
-            <div class="upload-image-button">
-                <button  pButton pRipple type="button" title="Change profile photo" (click)="openFileUploadDialog()" icon="pi pi-upload" class="p-button-raised p-button-rounded p-button-outlined" ></button>
-            </div>
+    <div class="profile-photo">
+        <ng-container *ngIf="!user.profilePhoto">
+            <img src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
+        </ng-container>
+        <ng-container class="profile-photo" *ngIf="user.profilePhoto">
+            <img src="{'data:image/png;base64', + user.profilePhoto}" />
+        </ng-container>
+        <div class="upload-image-button">
+            <button pButton pRipple type="button" title="Change profile photo" (click)="openFileUploadDialog()"
+                icon="pi pi-upload" class="p-button-raised p-button-rounded p-button-outlined"></button>
         </div>
-        <br>
-        <div class="user-details">
-            <p>USERNAME: {{user.username}}</p>
-            <p>FIRST NAME: {{user.firstName}}</p>
-             <p>LAST NAME: {{user.lastName}}</p>
-        </div>
+    </div>
+    <br>
+    <div class="user-details">
+        <p>USERNAME: {{user.username}}</p>
+        <p>FIRST NAME: {{user.firstName}}</p>
+        <p>LAST NAME: {{user.lastName}}</p>
+    </div>
+    <button pButton pRipple type="button" label="My properties" [routerLink]="['', 'my-properties']" class="p-button-raised p-button-primary"></button>
 </div>
 
-<p-dialog header="Upload profile picture" [(visible)]="isOpenPhotoUploadDialog" >
-    <app-upload-profile-picture (onUploadImage)="uploadImage($event)" >
 
+<p-dialog header="Upload profile picture" [(visible)]="isOpenPhotoUploadDialog">
+    <app-upload-profile-picture (onUploadImage)="uploadImage($event)">
     </app-upload-profile-picture>
 </p-dialog>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../user.entity';
+import { UserDTO } from '../user.dto';
 
 @Injectable({
 	providedIn: 'root'
@@ -29,8 +29,8 @@ export class UsersService {
 		private httpClient: HttpClient
 	) { }
 
-	public getUsers(): Observable<User[]> {
-		return this.httpClient.get<User[]>(this.baseUrl, this.getOptions());
+	public getUsers(): Observable<UserDTO[]> {
+		return this.httpClient.get<UserDTO[]>(this.baseUrl, this.getOptions());
 	}
 
 	public deleteById(id: number): Observable<any> {
@@ -41,26 +41,21 @@ export class UsersService {
 		return this.httpClient.post<any>(`${this.baseUrl}/change-role/${id}`, [role], this.getOptions());
 	}
 
-	public getUser(username: string): Observable<User> {
-		return this.httpClient.get<User>(`${this.baseUrl}/user/${username}`, this.getOptions());
+	public getUser(username: string): Observable<UserDTO> {
+		return this.httpClient.get<UserDTO>(`${this.baseUrl}/user/${username}`, this.getOptions());
 	}
 
 	public uploadProfilePhoto(id: number, photo: any) {
 
 		const formData = new FormData();
 		formData.append('imageFile', photo);
-		console.log(formData);
-
 		const options = this.getOptions();
 		options.headers['Content-Type'] = 'multipart/form-data';
-		console.log(options);
-
-
 		return this.httpClient.put(this.baseUrl + '/' + id + '/image', formData, options);
 	}
 
 
-	public userMapper(user: any): User {
+	public userMapper(user: any): UserDTO {
 		return {
 			id: user.userId,
 			firstName: user.firstName,
@@ -69,7 +64,7 @@ export class UsersService {
 			username: user.username,
 			profilePhoto: user.profilePhoto,
 			role: user.role
-		} as User;
+		} as UserDTO;
 	}
 
 }

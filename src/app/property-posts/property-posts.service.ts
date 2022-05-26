@@ -38,4 +38,17 @@ export class PropertyPostsService {
 		return this.http.get<any>(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 
+	public createPost(propertyPost: PropertyPost): Observable<PropertyPost> {
+		return this.http.post<PropertyPost>(this.baseUrl, propertyPost, this.getOptions());
+	}
+
+	public getPostsByUsername(username: string): Observable<any[]> {
+		return this.http.get<any[]>(`${this.baseUrl}/username/${username}`, this.getOptions());
+	}
+
+	public deleteById(id: number) {
+		console.log(id);
+		return this.http.delete(`${this.baseUrl}/${id}`, this.getOptions());
+	}
+
 }

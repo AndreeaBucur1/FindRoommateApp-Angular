@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/user.entity';
+import { UserDTO } from '../shared/user.dto';
 import { UsersService } from '../shared/services/users.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UsersService } from '../shared/services/users.service';
 })
 export class UsersManagementComponent implements OnInit {
 
-  public users: User[] = [];
+  public users: UserDTO[] = [];
 
   public columns: any[] = [];
 
@@ -42,7 +42,7 @@ export class UsersManagementComponent implements OnInit {
   public getUsers(): void {
     this.userService.getUsers()
       .subscribe(
-        (users: User[]) => {
+        (users: UserDTO[]) => {
           this.users = users;
 
         }

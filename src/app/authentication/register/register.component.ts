@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
 			Validators.required,
 			Validators.email
 		]],
+    gender: "FEMALE",
+    phoneNumber: "",
     username: ["", [Validators.required, Validators.minLength(3)]],
     password: ["", [Validators.required, Validators.minLength(10)]]
 	});
@@ -38,6 +40,11 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(["successfully-registered"]);
         }
       )
+  }
+
+  show() {
+    console.log(this.registerForm.value.gender);
+    
   }
 
 }

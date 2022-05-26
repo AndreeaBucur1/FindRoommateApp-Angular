@@ -1,14 +1,15 @@
-export class User {
 
-    public id?: number;
+export class UserDTO {
+
+    public userId?: number;
 
     public firstName?: string;
 
     public lastName?: string;
 
-    public email?: string;
-
     public password?: string;
+
+    public email?: string;
 
     public username?: string;
 
@@ -16,4 +17,7 @@ export class User {
 
     public role?: string;
 
+    public phoneNumber?: string;
+
+    public gender?: String
 }

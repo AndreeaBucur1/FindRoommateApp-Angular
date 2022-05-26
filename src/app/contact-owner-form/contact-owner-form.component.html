@@ -1,0 +1,6 @@
+<p-dialog header="Contact owner" [(visible)]="isContactFormOpen" (onHide)="closeForm()" [modal]="true">
+    
+    <mat-icon> phone</mat-icon> {{owner.phoneNumber}}
+    <br><br>
+    <mat-icon> email</mat-icon> {{owner.email}}
+</p-dialog>

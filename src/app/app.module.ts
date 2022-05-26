@@ -27,12 +27,16 @@ import {DialogModule} from 'primeng/dialog';
 import {FileUploadModule} from 'primeng/fileupload';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {MenubarModule} from 'primeng/menubar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 import { MenuComponent } from './menu/menu.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 import { PropertyPostsComponent } from './property-posts/property-posts.component';
 import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
 import { FilterPropertyPostsPipe } from './shared/pipes/filter-property-posts.pipe';
+import { AddPropertyFormComponent } from './property-posts/add-property-form/add-property-form.component';
+import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
+import { ContactOwnerFormComponent } from './contact-owner-form/contact-owner-form.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,10 @@ import { FilterPropertyPostsPipe } from './shared/pipes/filter-property-posts.pi
     ResetPasswordComponent,
     PropertyPostsComponent,
     PropertyDetailsComponent,
-    FilterPropertyPostsPipe
+    FilterPropertyPostsPipe,
+    AddPropertyFormComponent,
+    UsersPropertiesComponent,
+    ContactOwnerFormComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +76,10 @@ import { FilterPropertyPostsPipe } from './shared/pipes/filter-property-posts.pi
     MatIconModule,
     DropdownModule,
     InputTextModule,
-    CheckboxModule
+    CheckboxModule,
+    DialogModule,
+    RadioButtonModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

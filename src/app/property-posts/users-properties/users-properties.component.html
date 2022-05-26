@@ -1,0 +1,38 @@
+<br><br>
+<ng-container *ngFor="let propertyPost of propertyPosts ">
+    <br>
+    <div class="post-box">
+        <ng-container class="property-photo" *ngIf="!propertyPost.photo">
+            <img class="property-photo"
+                src="https://wearehpi.org/wp-content/uploads/2017/07/No-Photo-Available-Image.jpg" />
+        </ng-container>
+        <ng-container class="property-photo" *ngIf="propertyPost.photo">
+            <img src="{'data:image/png;base64', + propertyPost.photo}" />
+        </ng-container>
+        <h1 class="post-title">{{propertyPost.title}}</h1>
+        <h3 class="location">
+            <mat-icon>location_on</mat-icon>{{propertyPost.city}}
+        </h3>
+        <div class="info">
+            <div> &nbsp;{{propertyPost.numberOfRooms}} rooms &nbsp;| </div>
+            <div> {{propertyPost.numberOfBathrooms}} bathrooms &nbsp;| </div>
+            <div> {{propertyPost.surface}} m2 &nbsp;| </div>
+            <div> Built in {{propertyPost.buildYear}}&nbsp; </div>
+        </div>
+        <div class="post-info">
+            <h5> Posted by <a href="">{{propertyPost.user?.username}}</a> </h5>
+            <h5>{{propertyPost.creationDate}}</h5>
+        </div>
+        <h2 class="price">{{propertyPost.price}} EUR</h2>
+        <div class="buttons">
+            &nbsp;
+            <button pButton pRipple type="button" label="View details" class="p-button-raised"
+                [routerLink]="['','post',propertyPost.id]"></button>
+            &nbsp;
+            <button pButton pRipple type="button" label="Delete post" (click)="deleteById(propertyPost.id!)"
+                class="p-button-raised p-button-danger"></button>
+
+        </div>
+    </div>
+
+</ng-container>

@@ -18,7 +18,6 @@ export class UploadProfilePictureComponent implements OnInit {
   }
 
   public setImage(event: any): void{
-    console.log(event.target.files[0]);
     this.photo = event.target.files[0];
 
   }

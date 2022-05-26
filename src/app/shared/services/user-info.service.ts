@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../user.entity';
+import { UserDTO } from '../user.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,14 @@ export class UserInfoService {
 
   public token: string = '';
 
-  public user?: User;
+  public user?: UserDTO;
 
   public role: string = '';
 
 
   constructor() {}
 
-  public saveInfo(token: string, role: string, user?: User) {
+  public saveInfo(token: string, role: string, user?: UserDTO) {
     this.isUserConnected = true;
     this.token = token;
     this.user = user;

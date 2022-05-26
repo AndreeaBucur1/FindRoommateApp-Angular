@@ -1,0 +1,43 @@
+<p-dialog header="Add your property" [(visible)]="isFormOpen" (onHide)="closeForm()" [modal]="true">
+    <form [formGroup]="form" (ngSubmit)="handleSubmitForm()">
+        Title <input type="text" id="title" class="p-inputtext-sm" formControlName="title" pInputText />
+        &nbsp;
+        City <p-dropdown [options]="cities" formControlName="city" optionLabel="name" optionValue="name"
+            class="p-inputtext-sm" placeholder="Select a city"></p-dropdown>
+        <br><br>
+        Bathrooms <input type="number" min="0" class="p-inputtext-sm" style="width:50px;"
+            formControlName="numberOfBathrooms" pInputText />
+        Rooms <input type="number" min="1" class="p-inputtext-sm" style="width:50px;" formControlName="numberOfRooms"
+            pInputText />
+        <br><br>
+        <p-radioButton value="Apartment" label="Apartment" formControlName="propertyType"></p-radioButton>
+        <p-radioButton value="House" label="House" formControlName="propertyType"></p-radioButton>
+        <div *ngIf="form?.value.propertyType=='Apartment'">
+            <br>
+            Floor <input type="number" min="0" class="p-inputtext-sm" style="width:50px;" formControlName="floor"
+                pInputText />
+        </div>
+        <br *ngIf="form?.value.propertyType=='House'">
+        <br>
+        <p-radioButton [value]="true" label="Sale" formControlName="isForSale"></p-radioButton>
+        <p-radioButton [value]="false" label="Rent" formControlName="isForSale"></p-radioButton>
+        <br><br>
+        Surface <input type="number" min="0" class="p-inputtext-sm" style="width:50px;" formControlName="surface"
+            pInputText /> m2
+        <br><br>
+        <p-checkbox name="groupname" [binary]="true" formControlName="hasElevator"></p-checkbox> Elevator
+        &nbsp;
+        <p-checkbox name="groupname" [binary]="true" formControlName="hasParkingSpot"></p-checkbox> Parking spot
+        <br><br>
+        Built in <input type="number" min="1940" class="p-inputtext-sm" style="width:70px;" formControlName="buildYear"
+            pInputText />
+        &nbsp;
+        Price <input type="number" min="0" class="p-inputtext-sm" style="width:70px;" formControlName="price"
+            pInputText /> EUR
+        <br><br>
+        <textarea style="width:400px; height: 100px;" formControlName="description" pInputTextarea></textarea>
+        <br><br>
+        <button pButton pRipple type="submit" label="Add property" class="p-button-sm p-button-raised" style="float:right;"></button>
+        <br>
+    </form>
+</p-dialog>

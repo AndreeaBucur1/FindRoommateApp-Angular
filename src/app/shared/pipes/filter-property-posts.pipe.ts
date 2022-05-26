@@ -8,7 +8,6 @@ import { PropertyPost } from 'src/app/property-posts/property.post';
 export class FilterPropertyPostsPipe implements PipeTransform {
 
   transform(propertyPosts: PropertyPost[], city: string, numberOfRooms: number, numberOfBathrooms: number, minSurface: number, minYear: number | undefined, hasElevator: boolean | undefined, hasParkingSpot: boolean | undefined, propertyType: "Apartment" | "House" | "", maxPrice: number | undefined): PropertyPost[] {
-    console.log(city, numberOfRooms, numberOfBathrooms, minSurface, minYear, hasElevator, hasParkingSpot, propertyType, maxPrice);
     
     if (city && city != "All") {
         propertyPosts = propertyPosts.filter( propertyPost => propertyPost.city?.includes(city));

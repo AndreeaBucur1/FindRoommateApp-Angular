@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
   public sendEmailForPasswordReset(): void {
     this.resetPasswordService.sendEmailForPasswordReset(this.email)
     .subscribe(
-      (res) => {console.log(res);},
+      (res) => {},
       (err) => {console.log(err);
       }
     )

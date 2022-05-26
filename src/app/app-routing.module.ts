@@ -7,6 +7,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
 import { PropertyPostsComponent } from './property-posts/property-posts.component';
+import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
  
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'post/:id',
     component: PropertyDetailsComponent
+  },
+  {
+    path: 'my-properties',
+    component: UsersPropertiesComponent
   }
 ];
 

@@ -16,9 +16,7 @@ export class PropertyDetailsComponent implements OnInit {
   ) {
     activatedRoute.params.subscribe(
       (params) => {
-        const id = params["id"];
-        console.log(id);
-        
+        const id = params["id"];        
       }
     )
    }
