@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,16 +18,16 @@ import { ActivateAccountComponent } from './authentication/register/activate-acc
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UploadProfilePictureComponent } from './user-profile/upload-profile-picture/upload-profile-picture.component';
 
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
-import {DialogModule} from 'primeng/dialog';
-import {FileUploadModule} from 'primeng/fileupload';
-import {RadioButtonModule} from 'primeng/radiobutton';
-import {MenubarModule} from 'primeng/menubar';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+import { DialogModule } from 'primeng/dialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { MenubarModule } from 'primeng/menubar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { MenuComponent } from './menu/menu.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
@@ -37,51 +37,53 @@ import { FilterPropertyPostsPipe } from './shared/pipes/filter-property-posts.pi
 import { AddPropertyFormComponent } from './property-posts/add-property-form/add-property-form.component';
 import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
 import { ContactOwnerFormComponent } from './contact-owner-form/contact-owner-form.component';
+import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    UsersManagementComponent,
-    RegisterComponent,
-    AfterRegistrationComponent,
-    ActivateAccountComponent,
-    UserProfileComponent,
-    UploadProfilePictureComponent,
-    MenuComponent,
-    ResetPasswordComponent,
-    PropertyPostsComponent,
-    PropertyDetailsComponent,
-    FilterPropertyPostsPipe,
-    AddPropertyFormComponent,
-    UsersPropertiesComponent,
-    ContactOwnerFormComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    TableModule,
-    BrowserAnimationsModule,
-    ScrollingModule,
-    ButtonModule,
-    InputTextModule,
-    DropdownModule, 
-    DialogModule,
-    FileUploadModule,
-    RadioButtonModule,
-    MenubarModule,
-    MatIconModule,
-    DropdownModule,
-    InputTextModule,
-    CheckboxModule,
-    DialogModule,
-    RadioButtonModule,
-    InputTextareaModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		UsersManagementComponent,
+		RegisterComponent,
+		AfterRegistrationComponent,
+		ActivateAccountComponent,
+		UserProfileComponent,
+		UploadProfilePictureComponent,
+		MenuComponent,
+		ResetPasswordComponent,
+		PropertyPostsComponent,
+		PropertyDetailsComponent,
+		FilterPropertyPostsPipe,
+		AddPropertyFormComponent,
+		UsersPropertiesComponent,
+		ContactOwnerFormComponent,
+		FindRoommateFormComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule,
+		TableModule,
+		BrowserAnimationsModule,
+		ScrollingModule,
+		ButtonModule,
+		InputTextModule,
+		DropdownModule,
+		DialogModule,
+		FileUploadModule,
+		RadioButtonModule,
+		MenubarModule,
+		MatIconModule,
+		DropdownModule,
+		InputTextModule,
+		CheckboxModule,
+		DialogModule,
+		RadioButtonModule,
+		InputTextareaModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PropertyPost } from './property.post';
+import { PropertyPostDTO } from '../shared/dtos/property-post.dto';
 
 @Injectable({
 	providedIn: 'root'
@@ -38,8 +38,8 @@ export class PropertyPostsService {
 		return this.http.get<any>(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 
-	public createPost(propertyPost: PropertyPost): Observable<PropertyPost> {
-		return this.http.post<PropertyPost>(this.baseUrl, propertyPost, this.getOptions());
+	public createPost(propertyPost: PropertyPostDTO): Observable<PropertyPostDTO> {
+		return this.http.post<PropertyPostDTO>(this.baseUrl, propertyPost, this.getOptions());
 	}
 
 	public getPostsByUsername(username: string): Observable<any[]> {

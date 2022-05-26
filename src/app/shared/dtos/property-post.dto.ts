@@ -1,6 +1,6 @@
-import { UserDTO } from "../shared/user.dto";
+import { UserDTO } from "./user.dto";
 
-export class PropertyPost {
+export class PropertyPostDTO {
 	public id?: number;
 	public title?: string;
 	public propertyType?: string;

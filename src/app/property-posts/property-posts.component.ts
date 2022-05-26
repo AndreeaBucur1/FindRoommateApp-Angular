@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsersService } from '../shared/services/users.service';
 import { PropertyPostsService } from './property-posts.service';
-import { PropertyPost } from './property.post';
+import { PropertyPostDTO } from '../shared/dtos/property-post.dto';
 
 @Component({
 	selector: 'app-property-posts',
@@ -46,7 +46,7 @@ export class PropertyPostsComponent implements OnInit {
 	];
 
 
-	public propertyPosts: PropertyPost[] = [];
+	public propertyPosts: PropertyPostDTO[] = [];
 
 	constructor(
 		private propertyPostsService: PropertyPostsService,

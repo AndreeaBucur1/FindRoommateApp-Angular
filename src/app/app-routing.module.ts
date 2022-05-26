@@ -5,6 +5,7 @@ import { ActivateAccountComponent } from './authentication/register/activate-acc
 import { AfterRegistrationComponent } from './authentication/register/after-registration/after-registration.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-form.component';
 import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
 import { PropertyPostsComponent } from './property-posts/property-posts.component';
 import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path: 'my-properties',
     component: UsersPropertiesComponent
+  },
+  {
+    path: 'find-roommate',
+    component: FindRoommateFormComponent
   }
 ];
 

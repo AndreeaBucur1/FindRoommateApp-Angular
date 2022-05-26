@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { min } from 'rxjs';
-import { PropertyPost } from 'src/app/property-posts/property.post';
+import { PropertyPostDTO } from 'src/app/shared/dtos/property-post.dto';
 
 @Pipe({
   name: 'filterPropertyPosts'
 })
 export class FilterPropertyPostsPipe implements PipeTransform {
 
-  transform(propertyPosts: PropertyPost[], city: string, numberOfRooms: number, numberOfBathrooms: number, minSurface: number, minYear: number | undefined, hasElevator: boolean | undefined, hasParkingSpot: boolean | undefined, propertyType: "Apartment" | "House" | "", maxPrice: number | undefined): PropertyPost[] {
+  transform(propertyPosts: PropertyPostDTO[], city: string, numberOfRooms: number, numberOfBathrooms: number, minSurface: number, minYear: number | undefined, hasElevator: boolean | undefined, hasParkingSpot: boolean | undefined, propertyType: "Apartment" | "House" | "", maxPrice: number | undefined): PropertyPostDTO[] {
     
     if (city && city != "All") {
         propertyPosts = propertyPosts.filter( propertyPost => propertyPost.city?.includes(city));

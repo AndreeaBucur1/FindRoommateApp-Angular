@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fakeAsync } from '@angular/core/testing';
 import { UsersService } from '../shared/services/users.service';
-import { UserDTO } from '../shared/user.dto';
+import { UserDTO } from '../shared/dtos/user.dto';
 
 @Component({
   selector: 'app-user-profile',

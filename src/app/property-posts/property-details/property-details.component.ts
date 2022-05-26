@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PropertyPost } from '../property.post';
+import { PropertyPostDTO } from '../../shared/dtos/property-post.dto';
 
 @Component({
   selector: 'app-property-details',
@@ -9,7 +9,7 @@ import { PropertyPost } from '../property.post';
 })
 export class PropertyDetailsComponent implements OnInit {
 
-  public propertyPost?: PropertyPost;
+  public propertyPost?: PropertyPostDTO;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute

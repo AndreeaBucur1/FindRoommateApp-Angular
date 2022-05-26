@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/shared/services/users.service';
-import { UserDTO } from 'src/app/shared/user.dto';
+import { UserDTO } from 'src/app/shared/dtos/user.dto';
 import { PropertyPostsService } from '../property-posts.service';
-import { PropertyPost } from '../property.post';
+import { PropertyPostDTO } from '../../shared/dtos/property-post.dto';
 
 @Component({
 	selector: 'app-add-property-form',
@@ -112,7 +112,7 @@ export class AddPropertyFormComponent implements OnInit {
 	}
 
 	public handleSubmitForm(): void {
-		let propertyPost: PropertyPost = this.form.value;
+		let propertyPost: PropertyPostDTO = this.form.value;
 		const username = sessionStorage.getItem("username"); let user: UserDTO = {};
 		if (username) {
 			this.userService.getUser(username!)

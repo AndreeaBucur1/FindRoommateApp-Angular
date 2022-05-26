@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsersService } from '../shared/services/users.service';
-import { UserDTO } from '../shared/user.dto';
+import { UserDTO } from '../shared/dtos/user.dto';
 
 @Component({
 	selector: 'app-contact-owner-form',
