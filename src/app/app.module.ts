@@ -38,6 +38,7 @@ import { AddPropertyFormComponent } from './property-posts/add-property-form/add
 import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
 import { ContactOwnerFormComponent } from './contact-owner-form/contact-owner-form.component';
 import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-form.component';
+import { RoommatePostsComponent } from './roommate-posts/roommate-posts.component';
 
 @NgModule({
 	declarations: [
@@ -57,7 +58,8 @@ import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-fo
 		AddPropertyFormComponent,
 		UsersPropertiesComponent,
 		ContactOwnerFormComponent,
-		FindRoommateFormComponent
+		FindRoommateFormComponent,
+  RoommatePostsComponent
 	],
 	imports: [
 		BrowserModule,

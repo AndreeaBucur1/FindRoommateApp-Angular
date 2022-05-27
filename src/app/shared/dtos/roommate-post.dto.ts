@@ -12,6 +12,8 @@ export class RoommatePostDTO {
 
     public hasAge?: number;
 
+    public city?: string;
+
     public roommateMinAgePreference?: number;
 
     public roommateMaxAgePreference?: number;

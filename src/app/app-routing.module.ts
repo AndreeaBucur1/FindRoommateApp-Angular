@@ -9,6 +9,7 @@ import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-fo
 import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
 import { PropertyPostsComponent } from './property-posts/property-posts.component';
 import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
+import { RoommatePostsComponent } from './roommate-posts/roommate-posts.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
  
