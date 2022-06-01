@@ -39,7 +39,6 @@ export class UserProfileComponent implements OnInit {
       .subscribe(
         (res) => {
           console.log(res);
-          
         }
       )
   }

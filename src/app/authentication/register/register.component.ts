@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 			Validators.required,
 			Validators.email
 		]],
-    gender: "FEMALE",
+    gender: "Female",
     phoneNumber: "",
     username: ["", [Validators.required, Validators.minLength(3)]],
     password: ["", [Validators.required, Validators.minLength(10)]]
@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
   }
 
   show() {
-    console.log(this.registerForm.value.gender);
     
   }
 

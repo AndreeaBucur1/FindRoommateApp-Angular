@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PropertyPostDTO } from '../shared/dtos/property-post.dto';
+import { PropertyPostDTO } from '../dtos/property-post.dto';
 
 @Injectable({
 	providedIn: 'root'
@@ -47,7 +47,6 @@ export class PropertyPostsService {
 	}
 
 	public deleteById(id: number) {
-		console.log(id);
 		return this.http.delete(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 

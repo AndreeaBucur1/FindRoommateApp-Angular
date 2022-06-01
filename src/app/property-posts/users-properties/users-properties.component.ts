@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/shared/services/users.service';
-import { PropertyPostsService } from '../property-posts.service';
+import { PropertyPostsService } from '../../shared/services/property-posts.service';
 import { PropertyPostDTO } from '../../shared/dtos/property-post.dto';
 
 @Component({

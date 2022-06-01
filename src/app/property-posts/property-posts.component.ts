@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsersService } from '../shared/services/users.service';
-import { PropertyPostsService } from './property-posts.service';
+import { PropertyPostsService } from '../shared/services/property-posts.service';
 import { PropertyPostDTO } from '../shared/dtos/property-post.dto';
+import { cities } from '../shared/constants/app.constants';
 
 @Component({
 	selector: 'app-property-posts',
@@ -28,15 +29,7 @@ export class PropertyPostsComponent implements OnInit {
 	public isContactFormOpen: boolean = false;
 	public ownerUsername: string = "";
 
-	public cities =  [
-		{name: "All", code: "All"},
-		{name: 'New York', code: 'New York'},
-		{name: 'Rome', code: 'Rome'},
-		{name: 'London', code: 'London'},
-		{name: 'Istanbul', code: 'Istanbul'},
-		{name: 'Paris', code: 'Paris'}
-	];
-
+	public cities = [...cities];
 	
 	public propertyTypes =  [
 		{name: "All", code: "All"},
@@ -84,7 +77,6 @@ export class PropertyPostsComponent implements OnInit {
 	}
 
 	public openContactForm(username: string): void {
-		console.log(username);
 		this.ownerUsername = username;
 		this.isContactFormOpen = true;
 	}

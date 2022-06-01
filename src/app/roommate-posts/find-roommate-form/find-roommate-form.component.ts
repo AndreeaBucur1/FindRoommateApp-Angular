@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder } from '@angular/forms';
-import { RoommatePostDTO } from '../shared/dtos/roommate-post.dto';
-import { RoommatePostService } from '../shared/services/roommate-post.service';
+import { cities } from '../../shared/constants/app.constants';
+import { RoommatePostDTO } from '../../shared/dtos/roommate-post.dto';
+import { RoommatePostService } from '../../shared/services/roommate-post.service';
 
 @Component({
 	selector: 'app-find-roommate-form',
@@ -13,7 +14,7 @@ export class FindRoommateFormComponent implements OnInit {
 	public form = this.formBuilder.group({
 		isSmoker: false,
 		acceptSmoker: false,
-		roommateGenderPreference: "ANY",
+		roommateGenderPreference: "Any",
 		hasAge: 15,
 		roommateMinAgePreference: 15,
 		roommateMaxAgePreference: 30,
@@ -43,19 +44,20 @@ export class FindRoommateFormComponent implements OnInit {
 		description: ""
 	});
 
-	public cities = [
-		{ name: 'New York', code: 'NY' },
-		{ name: 'Rome', code: 'RM' },
-		{ name: 'London', code: 'LDN' },
-		{ name: 'Istanbul', code: 'IST' },
-		{ name: 'Paris', code: 'PRS' }
-	];
+	public cities = [...cities];
+
+	@Input()
+	public isFormOpen: boolean = false;
 
 	public isUserInfoVisible: boolean = true;
+	
 	public isRoommatePreferencesFormVisible: boolean = false;
 
+
+	@Output()
+	public closeFormEvent = new EventEmitter<void>();
+
 	show() {
-		// console.log(this.form.value);
 	}
 
 	public getRoommateMinAgePreference(): AbstractControl | null {
@@ -69,7 +71,11 @@ export class FindRoommateFormComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private roommatePostService: RoommatePostService
-	) { }
+	) { 
+		if(this.cities[0].name === "All"){
+			this.cities.shift();
+		}
+	}
 
 	ngOnInit(): void {
 	}
@@ -81,6 +87,7 @@ export class FindRoommateFormComponent implements OnInit {
 				.subscribe(
 					(res) => {
 						console.log(res);
+						this.closeForm();
 					},
 					(err) => {
 						console.log(err);					
@@ -90,15 +97,21 @@ export class FindRoommateFormComponent implements OnInit {
 	}
 
 	public openRoommatePreferencesForm(): void {
-		console.log(this.form.value);
 		this.isUserInfoVisible = false;
 		this.isRoommatePreferencesFormVisible = true
 	}
 
 	public openUserInfoForm(): void {
-		console.log(this.form.value);
 		this.isUserInfoVisible = true;
 		this.isRoommatePreferencesFormVisible = false
+	}
+
+	public closeForm(): void {
+		console.log("closed");
+		this.isFormOpen = false;
+		this.isUserInfoVisible = false;
+		this.isRoommatePreferencesFormVisible = false;
+		this.closeFormEvent.emit();
 	}
 
 }

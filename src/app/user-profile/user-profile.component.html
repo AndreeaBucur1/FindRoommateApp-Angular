@@ -18,6 +18,8 @@
         <p>LAST NAME: {{user.lastName}}</p>
     </div>
     <button pButton pRipple type="button" label="My properties" [routerLink]="['', 'my-properties']" class="p-button-raised p-button-primary"></button>
+    <br> <br>
+    <button *ngIf="user.roommatePost" pButton pRipple type="button" label="My post" [routerLink]="['', 'roommate-post-details', user.username]" class="p-button-raised p-button-primary"></button>
 </div>
 
 

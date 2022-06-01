@@ -5,13 +5,14 @@ import { ActivateAccountComponent } from './authentication/register/activate-acc
 import { AfterRegistrationComponent } from './authentication/register/after-registration/after-registration.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
-import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-form.component';
+import { FindRoommateFormComponent } from './roommate-posts/find-roommate-form/find-roommate-form.component';
 import { PropertyDetailsComponent } from './property-posts/property-details/property-details.component';
 import { PropertyPostsComponent } from './property-posts/property-posts.component';
 import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
 import { RoommatePostsComponent } from './roommate-posts/roommate-posts.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
+import { RoommatePostDetailsComponent } from './roommate-posts/roommate-post-details/roommate-post-details.component';
  
 const routes: Routes = [
   {
@@ -64,7 +65,11 @@ const routes: Routes = [
   },
   {
     path: 'find-roommate',
-    component: FindRoommateFormComponent
+    component: RoommatePostsComponent
+  },
+  {
+    path: 'roommate-post-details/:username',
+    component: RoommatePostDetailsComponent
   }
 ];
 

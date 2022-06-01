@@ -1,3 +1,4 @@
+import { RoommatePostDTO } from "./roommate-post.dto";
 
 export class UserDTO {
 
@@ -19,5 +20,7 @@ export class UserDTO {
 
     public phoneNumber?: string;
 
-    public gender?: String
+    public gender?: String;
+
+    public roommatePost?: RoommatePostDTO;
 }

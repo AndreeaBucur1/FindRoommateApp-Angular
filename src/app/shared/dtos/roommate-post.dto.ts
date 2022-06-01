@@ -1,14 +1,16 @@
+import { UserDTO } from "./user.dto";
+
 export class RoommatePostDTO {
 
     public id?: number;
 
-    public isSmoker?: boolean;
+    public smoker?: boolean = false;
 
     public acceptSmoker?: boolean;
 
     public hasGender?: "Female" | "Male";
 
-    public genderPreference?: "Female" | "Male" | "Any";
+    public roommateGenderPreference?: "Female" | "Male" | "Any";
 
     public hasAge?: number;
 
@@ -24,11 +26,11 @@ export class RoommatePostDTO {
 
     public acceptPets?: boolean;
 
-    public isWorking?: boolean;
+    public working?: boolean;
 
     public acceptNotWorking?: boolean;
 
-    public isOrganized?: boolean;
+    public organized?: boolean;
 
     public acceptUnorganized?: boolean;
 
@@ -36,19 +38,19 @@ export class RoommatePostDTO {
 
     public acceptPartyingRoommate?: boolean;
 
-    public isCommunicative?: boolean;
+    public communicative?: boolean;
 
     public acceptUncommunicative?: boolean;
 
-    public isPatient?: boolean;
+    public patient?: boolean;
 
     public acceptNotPatient?: boolean;
 
-    public isFriendly?: boolean;
+    public friendly?: boolean;
 
     public acceptNotFriendly?: boolean;
 
-    public isResponsible?: boolean;
+    public responsible?: boolean;
 
     public acceptNotResponsible?: boolean;
 
@@ -60,6 +62,10 @@ export class RoommatePostDTO {
 
     public acceptGuests?: boolean;
 
-    public isLookingForAFriend?: boolean;
+    public lookingForAFriend?: boolean;
+
+    public user?: UserDTO;
+
+    public description?: string;
 
 }

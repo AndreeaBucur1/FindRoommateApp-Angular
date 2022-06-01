@@ -1,1 +1,53 @@
-<p>roommate-posts works!</p>
+<br><br>
+City <p-dropdown [options]="cities" [(ngModel)]="cityFilter" optionLabel="name" optionValue="code"
+    class="p-inputtext-sm" placeholder="Select a city"></p-dropdown>
+Gender <p-dropdown [options]="genders" [(ngModel)]="genderFilter" optionLabel="name" optionValue="code"
+    class="p-inputtext-sm" placeholder=""></p-dropdown>
+<br><br>
+<p-checkbox name="groupname" [binary]="true" [(ngModel)]="notSmokerFilter"></p-checkbox> Not smoking
+<p-checkbox name="groupname" [binary]="true" [(ngModel)]="noPetsFilter"></p-checkbox> No pets
+
+<br><br>
+<button *ngIf="!currentUser.roommatePost?.id" pButton pRipple type="button" label="Create post" class="p-button-raised"
+    (click)="openForm()"></button>
+<br><br>
+<ng-container class="page"
+    *ngFor="let roommatePost of roommatePosts | filterRoommatePosts :cityFilter :genderFilter :noPetsFilter : notSmokerFilter">
+    <br>
+    <div class="post-box">
+        <ng-container class="profile-photo" *ngIf="!roommatePost.user?.profilePhoto">
+            <img class="profile-photo"
+                src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
+        </ng-container>
+        <ng-container class="profile-photo" *ngIf="roommatePost.user?.profilePhoto">
+            <img src="{'data:image/png;base64', + user.profilePhoto}" />
+        </ng-container>
+
+        <div class="info">
+            <h3>{{roommatePost.user?.firstName}} {{roommatePost.user?.lastName}}, {{roommatePost.hasAge}} years old</h3>
+            <mat-icon>location_on</mat-icon>{{roommatePost.city}}
+            <br><br>
+            <div *ngIf="roommatePost.hasApartment">
+                <mat-icon>home</mat-icon> {{roommatePost.user?.firstName}} already has an apartment
+            </div>
+            <div *ngIf="!roommatePost.hasApartment">
+                <br><br>
+            </div>
+            <br>
+
+            <textarea [disabled]=true class="description">
+               {{roommatePost.description}}
+           </textarea>
+
+        </div>
+
+        <div class="buttons">
+            <button pButton pRipple type="button" label="View more details"
+                [routerLink]="['','roommate-post-details',roommatePost.user?.username]"
+                class="p-button-raised p-button-text"></button>
+        </div>
+    </div>
+</ng-container>
+
+<app-find-roommate-form *ngIf="isOpenForm" (closeFormEvent)="closeForm()" [isFormOpen]="isOpenForm">
+</app-find-roommate-form>

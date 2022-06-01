@@ -2,8 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { UserDTO } from 'src/app/shared/dtos/user.dto';
-import { PropertyPostsService } from '../property-posts.service';
+import { PropertyPostsService } from '../../shared/services/property-posts.service';
 import { PropertyPostDTO } from '../../shared/dtos/property-post.dto';
+import { cities } from 'src/app/shared/constants/app.constants';
 
 @Component({
 	selector: 'app-add-property-form',
@@ -20,13 +21,7 @@ export class AddPropertyFormComponent implements OnInit {
 	@Input()
 	public isFormOpen: boolean = false;
 
-	public cities = [
-		{ name: 'New York', code: 'NY' },
-		{ name: 'Rome', code: 'RM' },
-		{ name: 'London', code: 'LDN' },
-		{ name: 'Istanbul', code: 'IST' },
-		{ name: 'Paris', code: 'PRS' }
-	];
+	public cities = [...cities];
 
 	public form: FormGroup = this.formBuilder.group({
 		"title": ["", [Validators.required, Validators.minLength(10)]],
@@ -106,7 +101,11 @@ export class AddPropertyFormComponent implements OnInit {
 		private formBuilder: FormBuilder,
 		private propertyPostsService: PropertyPostsService,
 		private userService: UsersService
-	) { }
+	) {
+		if (this.cities[0].name === "All"){
+			this.cities.shift();
+		}
+	 }
 
 	ngOnInit(): void {
 	}

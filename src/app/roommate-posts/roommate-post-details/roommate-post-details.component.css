@@ -4,30 +4,12 @@
     margin-left: 10px;
 }
 
-.post-box {
-    border: 1px solid rgb(217, 217, 217);
-    height: 20em;
-    display: block;
-    width: 94em;
-}
-
-.post-box:hover {
-    background-color: rgb(238, 238, 238);
-}
-
-.page {
-    background-color: red;
-}
-
 .info {
     
-    /* max-width: 300px; */
     width:fit-content;
     color: rgb(33,150,243);
     margin-top:-11.2em;
     margin-left: 12em;
-    /* background-color: rgb(223, 239, 252); */
-    /* display: inline-flex; */
     white-space: pre-wrap;
     text-align: center;
     text-align: left;
@@ -50,4 +32,14 @@
 
 .filters {
     display: inline;
+}
+
+.more-info {
+    margin-left: 10px;
+    color: rgb(33,150,243);
+}
+
+.smoking{
+    white-space: nowrap;
+    overflow-x: auto;
 }

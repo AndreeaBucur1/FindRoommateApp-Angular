@@ -49,12 +49,14 @@ export class MenuComponent implements OnInit {
 
   public prepareMenuForAdminRole(): void {
     this.items.push({ label: "Users", routerLink: "/users" });
-    this.items.push({ label: "Sales", routerLink: "/sale" });
-    this.items.push({ label: "Rents", routerLink: "/rent"});
+
   }
 
   public prepareMenuForConnectedUser(): void {
     this.items.push({ label: "Profile", routerLink: "/profile" });
+    this.items.push({ label: "Sales", routerLink: "/sale" });
+    this.items.push({ label: "Rents", routerLink: "/rent"});
+    this.items.push({label: "Find roommate", routerLink: "/find-roommate"});
   }
 
 }

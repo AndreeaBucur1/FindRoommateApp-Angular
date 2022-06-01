@@ -1,0 +1,124 @@
+
+<br><br>
+<button pButton pRipple type="button" label="Back to all posts"
+[routerLink]="['','find-roommate']"
+class="p-button-raised "></button>
+<br><br>
+<ng-container class="profile-photo" *ngIf="!user.profilePhoto">
+    <img class="profile-photo" src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
+</ng-container>
+<ng-container class="profile-photo" *ngIf="user.profilePhoto">
+    <img src="{'data:image/png;base64', + user.profilePhoto}" />
+</ng-container>
+<div class="info">
+    <h3>{{user.firstName}} {{user.lastName}}, {{user.roommatePost?.hasAge}} years old</h3>
+    <mat-icon>location_on</mat-icon>{{user.roommatePost?.city}}
+    <br><br>
+    <div *ngIf="user.roommatePost?.hasApartment">
+        <mat-icon>home</mat-icon> {{user.firstName}} already has an apartment
+    </div>
+    <div *ngIf="!user.roommatePost?.hasApartment">
+        <br><br>
+    </div>
+    <br>
+
+    <textarea [disabled]=true class="description">
+       {{user.roommatePost?.description}}
+   </textarea>
+    <br><br>
+</div>
+<hr>
+
+<div class="more-info">
+    <h3>More about {{user.firstName}}</h3>
+    &#10687;{{user.roommatePost?.hasGender | titlecase}}
+    <br>
+    &#10687;{{user.roommatePost?.smoker ? "Is smoking" : "Is not smoking"}}
+    <br>
+    &#10687;{{user.roommatePost?.hasPets ? "Has pets" : "Does not have pets"}}
+    <br>
+    &#10687;{{user.roommatePost?.working ? "Is working" : "Is not working" }}
+    <br>
+    <div *ngIf="user.roommatePost?.patient">
+        &#10687;Is a patient person
+        <br>
+    </div>
+    <div *ngIf="user.roommatePost?.organized">
+        &#10687;Is organized
+        <br>
+    </div>
+    &#10687;{{user.roommatePost?.likesParties ? "Likes parties" : "Does not like parties"}}
+    <br>
+    <div *ngIf="user.roommatePost?.communicative">
+        &#10687;Is communicative
+        <br>
+    </div>
+    <div *ngIf="user.roommatePost?.friendly">
+        &#10687;Is friendly
+        <br>
+    </div>
+    <div *ngIf="user.roommatePost?.responsible">
+        &#10687;Is responsible
+        <br>
+    </div>
+    &#10687;{{user.roommatePost?.hasHomeParties ? "Usually throws parties at home" : "Doesn't use to throw parties at
+    home"}}
+    <br>
+    &#10687;{{user.roommatePost?.hasGuests ? "Usually has guests over" : "Doesn't use to have guests over"}}
+    <br>
+    <div *ngIf="user.roommatePost?.lookingForAFriend">
+        &#10687;Wants to become friends with the roommate
+        <br>
+    </div>
+</div>
+<br>
+<hr>
+<div class="more-info">
+    <h3>{{user.firstName}}'s expectations of roommates</h3>
+    &#10687;{{user.roommatePost?.acceptSmoker ? "Accepts smoker" : "Does not accept smoker"}}
+    <br>
+    <div *ngIf="user.roommatePost?.roommateGenderPreference !== 'Any'">
+        &#10687;Only accepts {{user.roommatePost?.roommateGenderPreference | lowercase}} roommate 
+    </div>
+    &#10687;Roommate must be between {{user.roommatePost?.roommateMinAgePreference}} and {{user.roommatePost?.roommateMaxAgePreference}} years old
+    <br>
+    &#10687;{{user.roommatePost?.acceptPets ? "Accepts pets" : "Does not accept pets"}}
+    <br>
+    <div *ngIf="!user.roommatePost?.acceptNotWorking">
+        &#10687;Roommate must work
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptUnorganized">
+        &#10687;Roommate must be organized
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptUncommunicative">
+        &#10687;Roommate must be communicative
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptNotPatient">
+        &#10687;Roommate must be patient
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptNotFriendly">
+        &#10687;Roommate must be friendly
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptNotResponsible">
+        &#10687;Roommate must be responsible
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptHomeParties">
+        &#10687;Roommate must be organized
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptGuests">
+        &#10687;Roommate should not have guests over often
+    </div>
+    <div *ngIf="!user.roommatePost?.acceptHomeParties">
+        &#10687;Roommate should not throw parties at home often
+    </div>
+</div>
+<br>
+<hr>
+<div class="more-info">
+    <h3>Contact {{user.firstName}} if you think you could be roommates.</h3>
+    <br>
+    <mat-icon> phone</mat-icon> {{user.phoneNumber}}
+    <br><br>
+    <mat-icon> email</mat-icon> {{user.email}}
+</div>
+<br><br><br><br>

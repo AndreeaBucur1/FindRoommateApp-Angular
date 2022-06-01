@@ -1,4 +1,4 @@
-<p-dialog header="Create announcement" [visible]="true" [style]="{width: '50vw'}">
+<p-dialog header="Create announcement" [modal]="true" [(visible)]="isFormOpen" (onHide)="closeForm()" [style]="{width: '50vw'}">
     <br>
     <form [formGroup]="form" (ngSubmit)="handleSubmitForm()">
 
@@ -221,13 +221,13 @@
 
             GENDER
             &nbsp;
-            <p-radioButton  value='ANY' label="Any" formControlName="roommateGenderPreference">
+            <p-radioButton  value='Any' label="Any" formControlName="roommateGenderPreference">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  value='FEMALE' label="Female" formControlName="roommateGenderPreference">
+            <p-radioButton  value='Female' label="Female" formControlName="roommateGenderPreference">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  value='MALE' label="Male" formControlName="roommateGenderPreference">
+            <p-radioButton  value='Male' label="Male" formControlName="roommateGenderPreference">
             </p-radioButton>
             <br><br>
 

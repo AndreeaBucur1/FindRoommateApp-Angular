@@ -37,8 +37,10 @@ import { FilterPropertyPostsPipe } from './shared/pipes/filter-property-posts.pi
 import { AddPropertyFormComponent } from './property-posts/add-property-form/add-property-form.component';
 import { UsersPropertiesComponent } from './property-posts/users-properties/users-properties.component';
 import { ContactOwnerFormComponent } from './contact-owner-form/contact-owner-form.component';
-import { FindRoommateFormComponent } from './find-roommate-form/find-roommate-form.component';
+import { FindRoommateFormComponent } from './roommate-posts/find-roommate-form/find-roommate-form.component';
 import { RoommatePostsComponent } from './roommate-posts/roommate-posts.component';
+import { FilterRoommatePostsPipe } from './shared/pipes/filter-roommate-posts.pipe';
+import { RoommatePostDetailsComponent } from './roommate-posts/roommate-post-details/roommate-post-details.component';
 
 @NgModule({
 	declarations: [
@@ -59,7 +61,9 @@ import { RoommatePostsComponent } from './roommate-posts/roommate-posts.componen
 		UsersPropertiesComponent,
 		ContactOwnerFormComponent,
 		FindRoommateFormComponent,
-  RoommatePostsComponent
+  RoommatePostsComponent,
+  FilterRoommatePostsPipe,
+  RoommatePostDetailsComponent
 	],
 	imports: [
 		BrowserModule,

@@ -35,6 +35,7 @@ Maximum price <input type="number" [(ngModel)]="maxPriceFilter" min="0" class="p
             <mat-icon>location_on</mat-icon>{{propertyPost.city}}
         </h3>
         <div class="info">
+            <div> &nbsp;{{propertyPost.propertyType}} &nbsp;| </div>
             <div> &nbsp;{{propertyPost.numberOfRooms}} rooms &nbsp;| </div>
             <div> {{propertyPost.numberOfBathrooms}} bathrooms &nbsp;| </div>
             <div> {{propertyPost.surface}} m2 &nbsp;| </div>
@@ -56,3 +57,4 @@ Maximum price <input type="number" [(ngModel)]="maxPriceFilter" min="0" class="p
     </app-add-property-form>
     <app-contact-owner-form *ngIf="isContactFormOpen" (closeContactFormEvent)="closeContactForm()" [username]="ownerUsername" [isContactFormOpen]="isContactFormOpen"></app-contact-owner-form>
 </ng-container>
+

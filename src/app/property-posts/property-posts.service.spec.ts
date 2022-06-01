@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PropertyPostsService } from './property-posts.service';
+import { PropertyPostsService } from '../shared/services/property-posts.service';
 
 describe('PropertyPostsService', () => {
   let service: PropertyPostsService;

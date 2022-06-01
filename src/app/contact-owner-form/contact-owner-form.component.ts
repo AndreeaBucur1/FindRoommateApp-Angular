@@ -29,7 +29,6 @@ export class ContactOwnerFormComponent implements OnInit {
 	}
 
 	public findOwner(): void {
-		console.log(this.username);
 		if (this.username) {
 			this.userService.getUser(this.username)
 				.subscribe(
