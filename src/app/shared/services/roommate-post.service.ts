@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MatchingScoreDTO } from '../dtos/matching-score.dto';
 import { RoommatePostDTO } from '../dtos/roommate-post.dto';
 
 @Injectable({
@@ -20,6 +21,10 @@ export class RoommatePostService {
 
 	public getRoommatePosts(): Observable<RoommatePostDTO[]> {
 		return this.http.get<RoommatePostDTO[]>(this.baseUrl, this.getOptions());
+	}
+
+	public getRoommatePostsOrderByMatching(username: string): Observable<MatchingScoreDTO[]> {
+		return this.http.get<MatchingScoreDTO[]>(`${this,this.baseUrl}/filter-roommates/${username}`, this.getOptions());
 	}
 
 	public getOptions = () => {

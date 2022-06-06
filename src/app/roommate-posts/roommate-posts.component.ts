@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { cities } from '../shared/constants/app.constants';
+import { MatchingScoreDTO } from '../shared/dtos/matching-score.dto';
 import { RoommatePostDTO } from '../shared/dtos/roommate-post.dto';
 import { UserDTO } from '../shared/dtos/user.dto';
 import { RoommatePostService } from '../shared/services/roommate-post.service';
@@ -14,9 +15,13 @@ export class RoommatePostsComponent implements OnInit {
 
 	public roommatePosts: RoommatePostDTO[] = [];
 
+	public matchingScoreDTOs: MatchingScoreDTO[] = [];
+
 	public currentUser: UserDTO = {};
 
 	public isOpenForm: boolean = false;
+
+	public isOrderedByMatching = false;
 
 	public cityFilter: string = "";
 	public genderFilter: "Any" | "Female" | "Male" = "Any";
@@ -45,9 +50,13 @@ export class RoommatePostsComponent implements OnInit {
 
 	public getRoommatePosts(): void {
 		this.roommatePostService.getRoommatePosts()
-			.subscribe(
-				(res) => {
+		.subscribe(
+			(res) => {
+					this.isOrderedByMatching = false;
+					this.matchingScoreDTOs = [];
 					this.roommatePosts = res;	
+					console.log(this.roommatePosts);
+					
 				},
 				(err) => {
 					console.log(err);
@@ -60,6 +69,25 @@ export class RoommatePostsComponent implements OnInit {
 			.subscribe(
 				(res) => {
 					this.currentUser = res;					
+				}
+			)
+	}
+
+	public orderByMatching(): void {
+		this.roommatePostService.getRoommatePostsOrderByMatching(this.currentUser.username!)
+			.subscribe(
+				(res) => {
+					this.matchingScoreDTOs = res;
+					this.isOrderedByMatching = true;
+					this.roommatePosts = [];
+					for (let matchingScoreDTO of this.matchingScoreDTOs) {
+						let roommatePost = matchingScoreDTO.roommatePostDTO;
+						roommatePost.score = matchingScoreDTO.score;
+						this.roommatePosts.push(roommatePost);
+					}					
+				},
+				(err) => {
+					console.log(err);					
 				}
 			)
 	}

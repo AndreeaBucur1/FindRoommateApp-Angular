@@ -8,11 +8,14 @@ Gender <p-dropdown [options]="genders" [(ngModel)]="genderFilter" optionLabel="n
 <p-checkbox name="groupname" [binary]="true" [(ngModel)]="noPetsFilter"></p-checkbox> No pets
 
 <br><br>
-<button pButton pRipple type="button" label="Create post" class="p-button-raised"
-    (click)="openForm()"></button>
-    &nbsp;
-<button *ngIf="currentUser.roommatePost" pButton pRipple type="button" label="Order by preferences" class="p-button-raised"></button> 
-<mat-icon *ngIf="currentUser.roommatePost" title="Order roommates by your and their preferences. The algorithm verifies your match with each user based on your and their answers to the questions from the announcement formular. 
+<button pButton pRipple type="button" label="Create post" class="p-button-raised" (click)="openForm()"></button>
+&nbsp;
+<button *ngIf="currentUser.roommatePost && isOrderedByMatching" pButton pRipple type="button" label="Show all"
+    (click)="getRoommatePosts()" class="p-button-raised"></button>
+<button *ngIf="currentUser.roommatePost && !isOrderedByMatching" pButton pRipple type="button"
+    label="Order by preferences" (click)="orderByMatching()" class="p-button-raised"></button>
+<mat-icon *ngIf="currentUser.roommatePost && !isOrderedByMatching"
+    title="Order roommates by your and their preferences. The algorithm verifies your match with each user based on your and their answers to the questions from the announcement formular. 
 The first person in the list after applying the algorithm will be the best match.
 The last person in the list will be the last fitted for you based on your answers.
 Please note that those that do not meet your requirements or whose requirements you do not meet will not appear in the list.">info</mat-icon>
@@ -45,13 +48,18 @@ Please note that those that do not meet your requirements or whose requirements 
                {{roommatePost.description}}
            </textarea>
 
-        </div>
 
+        </div>
         <div class="buttons">
             <button pButton pRipple type="button" label="View more details"
                 [routerLink]="['','roommate-post-details',roommatePost.user?.username]"
                 class="p-button-raised p-button-text"></button>
         </div>
+        
+        <div class="match" *ngIf="isOrderedByMatching" style="color:red;">
+            Match: {{roommatePost.score}}%
+        </div>
+
     </div>
 </ng-container>
 

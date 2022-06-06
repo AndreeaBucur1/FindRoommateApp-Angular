@@ -68,4 +68,6 @@ export class RoommatePostDTO {
 
     public description?: string;
 
+    public score?: number;
+
 }
