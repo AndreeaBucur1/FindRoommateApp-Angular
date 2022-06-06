@@ -8,8 +8,14 @@ Gender <p-dropdown [options]="genders" [(ngModel)]="genderFilter" optionLabel="n
 <p-checkbox name="groupname" [binary]="true" [(ngModel)]="noPetsFilter"></p-checkbox> No pets
 
 <br><br>
-<button *ngIf="!currentUser.roommatePost?.id" pButton pRipple type="button" label="Create post" class="p-button-raised"
+<button pButton pRipple type="button" label="Create post" class="p-button-raised"
     (click)="openForm()"></button>
+    &nbsp;
+<button *ngIf="currentUser.roommatePost" pButton pRipple type="button" label="Order by preferences" class="p-button-raised"></button> 
+<mat-icon *ngIf="currentUser.roommatePost" title="Order roommates by your and their preferences. The algorithm verifies your match with each user based on your and their answers to the questions from the announcement formular. 
+The first person in the list after applying the algorithm will be the best match.
+The last person in the list will be the last fitted for you based on your answers.
+Please note that those that do not meet your requirements or whose requirements you do not meet will not appear in the list.">info</mat-icon>
 <br><br>
 <ng-container class="page"
     *ngFor="let roommatePost of roommatePosts | filterRoommatePosts :cityFilter :genderFilter :noPetsFilter : notSmokerFilter">

@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
     private readonly resetPasswordService: ResetPasswordService
   ) { }
 
+  
   ngOnInit(): void {
+    this.userInfoService.logout();
   }
 
   public handleSubmitForm(): void {

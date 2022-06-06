@@ -114,8 +114,9 @@
             <br>
         </div>
         <div *ngIf="isRoommatePreferencesFormVisible">
-            Now tell us about what you are looking for in a roommate.
-            Please check YES if you would accept the following things about your roommate, otherwise check NO.
+            Now tell us about your preferences about your potential roommate.
+            Select NO if you would not like that about your roommate. We will not display all this information in your announcement, however we will use it to help you find 
+            a fit roommate faster.
             <br><br>
 
             <!-- Would you be ok with your roommate smoking? -->
@@ -123,7 +124,7 @@
             &nbsp;
             <p-radioButton  [value]=false label="No" formControlName="acceptSmoker"></p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptSmoker"></p-radioButton>
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptSmoker"></p-radioButton>
             <br><br>
 
             <!-- Would you accept a roommate with pets? -->
@@ -131,7 +132,7 @@
             &nbsp;
             <p-radioButton  [value]=false label="No" formControlName="acceptPets"></p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptPets"></p-radioButton>
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptPets"></p-radioButton>
             <br><br>
 
             <!-- Would you accept a roommate who is not working? -->
@@ -139,7 +140,7 @@
             &nbsp;
             <p-radioButton  [value]=false label="No" formControlName="acceptNotWorking"></p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptNotWorking"></p-radioButton>
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptNotWorking"></p-radioButton>
             <br><br>
 
             <!-- Would you accept a roommate who is not so organized? -->
@@ -148,7 +149,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptUnorganized">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptUnorganized">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptUnorganized">
             </p-radioButton>
             <br><br>
 
@@ -158,7 +159,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptPartyingRoommate">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptPartyingRoommate">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptPartyingRoommate">
             </p-radioButton>
             <br><br>
 
@@ -168,7 +169,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptUncommunicative">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptUncommunicative">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptUncommunicative">
             </p-radioButton>
             <br><br>
 
@@ -177,7 +178,7 @@
             &nbsp;
             <p-radioButton  [value]=false label="No" formControlName="acceptNotPatient"></p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptNotPatient"></p-radioButton>
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptNotPatient"></p-radioButton>
             <br><br>
 
             <!-- Would you accept a roommate who is not friendly? -->
@@ -186,7 +187,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptNotFriendly">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptNotFriendly">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptNotFriendly">
             </p-radioButton>
             <br><br>
 
@@ -196,7 +197,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptNotResponsible">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptNotResponsible">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptNotResponsible">
             </p-radioButton>
             <br><br>
 
@@ -206,7 +207,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptHomeParties">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptHomeParties">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptHomeParties">
             </p-radioButton>
             <br><br>
 
@@ -215,7 +216,7 @@
             <p-radioButton  [value]=false label="No" formControlName="acceptGuests">
             </p-radioButton>
             &nbsp;
-            <p-radioButton  [value]=true label="Yes" formControlName="acceptGuests">
+            <p-radioButton  [value]=true label="Does not matter" formControlName="acceptGuests">
             </p-radioButton>
             <br><br>
 

@@ -29,5 +29,6 @@ export class UserInfoService {
     this.token = '';
     this.user = undefined;
     this.role = '';
+    sessionStorage.clear();
   }
 }
