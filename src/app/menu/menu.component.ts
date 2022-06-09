@@ -42,6 +42,10 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public isConnected(): boolean {
+    return !!sessionStorage.getItem('username');
+  }
+
   public logout() {
     this.userInfoService.logout();
     sessionStorage.clear();

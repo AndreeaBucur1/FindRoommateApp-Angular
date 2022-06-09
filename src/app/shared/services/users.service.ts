@@ -34,6 +34,8 @@ export class UsersService {
 	}
 
 	public deleteById(id: number): Observable<any> {
+		console.log(id);
+		
 		return this.httpClient.delete(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 
@@ -45,12 +47,15 @@ export class UsersService {
 		return this.httpClient.get<UserDTO>(`${this.baseUrl}/user/${username}`, this.getOptions());
 	}
 
-	public uploadProfilePhoto(id: number, photo: any) {
-
+	public uploadProfilePhoto(id: number, imageFile: File) {
+		console.log(imageFile);
+		
 		const formData = new FormData();
-		formData.append('imageFile', photo);
+		formData.append('imageFile', imageFile);
 		const options = this.getOptions();
-		options.headers['Content-Type'] = 'multipart/form-data';
+		options.headers['Content-Type'] =  'multipart/form-data';
+		console.log(formData);
+		
 		return this.httpClient.put(this.baseUrl + '/' + id + '/image', formData, options);
 	}
 

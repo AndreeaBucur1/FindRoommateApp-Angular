@@ -8,7 +8,7 @@
     border: 1px solid rgb(217, 217, 217);
     height: 20em;
     display: block;
-    
+    border-radius: 4px;
 }
 
 .post-box:hover {

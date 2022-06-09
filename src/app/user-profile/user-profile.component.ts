@@ -35,6 +35,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   public uploadImage(event: any) {
+    console.log(event);
+    
      this.userService.uploadProfilePhoto(this.user.userId!, event)
       .subscribe(
         (res) => {

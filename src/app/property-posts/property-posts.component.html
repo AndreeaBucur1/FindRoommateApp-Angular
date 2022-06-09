@@ -1,4 +1,8 @@
 <br><br>
+Filters <span ><mat-icon  (click)="updateFiltersActive()">filter_list</mat-icon></span>
+<br><br>
+<div *ngIf="filtersActive" >
+
 City <p-dropdown [options]="cities" [(ngModel)]="cityFilter" optionLabel="name" optionValue="code"
     class="p-inputtext-sm" placeholder="Select a city"></p-dropdown>
 Rooms <input type="number" [(ngModel)]="numberOfRoomsFilter" min="0" class="p-inputtext-sm" style="width:50px;"
@@ -14,7 +18,8 @@ Maximum price <input type="number" [(ngModel)]="maxPriceFilter" min="0" class="p
 <br><br>
 <p-checkbox name="groupname" [binary]="true" [(ngModel)]="hasElevatorFilter"></p-checkbox> Elevator
 <p-checkbox name="groupname" [binary]="true" [(ngModel)]="hasParkingSpotFilter"></p-checkbox> Parking spot
-
+    
+</div>
 <button pButton pRipple type="button" label="Add property" class="p-button-sm p-button-raised " (click)="openForm()"
     style="float:right;"></button>
 

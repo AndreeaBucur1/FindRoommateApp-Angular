@@ -23,6 +23,7 @@ export class PropertyPostsComponent implements OnInit {
 	public hasParkingSpotFilter?: boolean;
 	public propertyTypeFilter: "Apartment" | "House" | "" = "";
 	public maxPriceFilter?: number;
+	public filtersActive: boolean = false;
 
 	public isFormOpen: boolean = false;
 
@@ -83,6 +84,10 @@ export class PropertyPostsComponent implements OnInit {
 
 	public closeContactForm(): void {
 		this.isContactFormOpen = false;
+	}
+
+	public updateFiltersActive(): void {
+		this.filtersActive = !this.filtersActive;
 	}
 
 }

@@ -44,12 +44,15 @@ export class UsersManagementComponent implements OnInit {
       .subscribe(
         (users: UserDTO[]) => {
           this.users = users;
-
+          console.log(users);
+          
         }
       )
   }
 
   public deleteById(id: number): void {
+    console.log(id);
+    
     this.userService.deleteById(id)
       .subscribe(
         () => {

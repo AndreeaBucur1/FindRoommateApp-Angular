@@ -41,6 +41,7 @@ import { FindRoommateFormComponent } from './roommate-posts/find-roommate-form/f
 import { RoommatePostsComponent } from './roommate-posts/roommate-posts.component';
 import { FilterRoommatePostsPipe } from './shared/pipes/filter-roommate-posts.pipe';
 import { RoommatePostDetailsComponent } from './roommate-posts/roommate-post-details/roommate-post-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
 	declarations: [
@@ -63,7 +64,8 @@ import { RoommatePostDetailsComponent } from './roommate-posts/roommate-post-det
 		FindRoommateFormComponent,
   RoommatePostsComponent,
   FilterRoommatePostsPipe,
-  RoommatePostDetailsComponent
+  RoommatePostDetailsComponent,
+  HomeComponent
 	],
 	imports: [
 		BrowserModule,
