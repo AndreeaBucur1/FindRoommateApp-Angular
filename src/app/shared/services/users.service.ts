@@ -39,8 +39,8 @@ export class UsersService {
 		return this.httpClient.delete(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 
-	public changeRole(id: number, role: string): Observable<void> {
-		return this.httpClient.post<any>(`${this.baseUrl}/change-role/${id}`, [role], this.getOptions());
+	public changeRole(userId: number, role: string): Observable<void> {
+		return this.httpClient.post<any>(`${this.baseUrl}/change-role/${userId}`, [role], this.getOptions());
 	}
 
 	public getUser(username: string): Observable<UserDTO> {

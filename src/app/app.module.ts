@@ -62,10 +62,10 @@ import { HomeComponent } from './home/home.component';
 		UsersPropertiesComponent,
 		ContactOwnerFormComponent,
 		FindRoommateFormComponent,
-  RoommatePostsComponent,
-  FilterRoommatePostsPipe,
-  RoommatePostDetailsComponent,
-  HomeComponent
+		RoommatePostsComponent,
+		FilterRoommatePostsPipe,
+		RoommatePostDetailsComponent,
+		HomeComponent
 	],
 	imports: [
 		BrowserModule,

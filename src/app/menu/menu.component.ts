@@ -4,63 +4,63 @@ import { MenuItem } from 'primeng/api'
 import { UserInfoService } from '../shared/services/user-info.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+	selector: 'app-menu',
+	templateUrl: './menu.component.html',
+	styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
 
-  public items: MenuItem[] = [];
+	public items: MenuItem[] = [];
 
-  public isUserConnected: boolean = false;
+	public isUserConnected: boolean = false;
 
-  constructor(
-    private userInfoService: UserInfoService,
-    private router: Router
-  ) {
+	constructor(
+		private userInfoService: UserInfoService,
+		private router: Router
+	) {
 
-    router.events.subscribe(event => {
+		router.events.subscribe(event => {
 
-      if (event instanceof NavigationEnd) {
+			if (event instanceof NavigationEnd) {
 
-        this.items = [
-          { label: "Home", routerLink: "/login" }
-        ]
-        if(sessionStorage.getItem('role') !== null) {
-          this.prepareMenuForConnectedUser();
-        }
-        if (sessionStorage.getItem('role') === 'ADMIN') {
-          this.prepareMenuForAdminRole();
-        }
-      }
-    });
+				this.items = [
+					{ label: "Home", routerLink: "/login" }
+				]
+				if (sessionStorage.getItem('role') !== null) {
+					this.prepareMenuForConnectedUser();
+				}
+				if (sessionStorage.getItem('role') === 'ADMIN') {
+					this.prepareMenuForAdminRole();
+				}
+			}
+		});
 
-    this.isUserConnected = userInfoService.isUserConnected;
+		this.isUserConnected = userInfoService.isUserConnected;
+		
+	}
 
-  }
+	ngOnInit(): void {
+	}
 
-  ngOnInit(): void {
-  }
+	public isConnected(): boolean {
+		return !!sessionStorage.getItem('username');
+	}
 
-  public isConnected(): boolean {
-    return !!sessionStorage.getItem('username');
-  }
+	public logout() {
+		this.userInfoService.logout();
+		sessionStorage.clear();
+	}
 
-  public logout() {
-    this.userInfoService.logout();
-    sessionStorage.clear();
-  }
+	public prepareMenuForAdminRole(): void {
+		this.items.push({ label: "Users", routerLink: "/users" });
 
-  public prepareMenuForAdminRole(): void {
-    this.items.push({ label: "Users", routerLink: "/users" });
+	}
 
-  }
-
-  public prepareMenuForConnectedUser(): void {
-    this.items.push({ label: "Profile", routerLink: "/profile" });
-    this.items.push({ label: "Sales", routerLink: "/sale" });
-    this.items.push({ label: "Rents", routerLink: "/rent"});
-    this.items.push({label: "Find roommate", routerLink: "/find-roommate"});
-  }
+	public prepareMenuForConnectedUser(): void {
+		this.items.push({ label: "Profile", routerLink: "/profile" });
+		this.items.push({ label: "Sales", routerLink: "/sale" });
+		this.items.push({ label: "Rents", routerLink: "/rent" });
+		this.items.push({ label: "Find roommate", routerLink: "/find-roommate" });
+	}
 
 }

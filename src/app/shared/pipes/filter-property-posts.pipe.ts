@@ -7,7 +7,10 @@ import { PropertyPostDTO } from 'src/app/shared/dtos/property-post.dto';
 })
 export class FilterPropertyPostsPipe implements PipeTransform {
 
-  transform(propertyPosts: PropertyPostDTO[], city: string, numberOfRooms: number, numberOfBathrooms: number, minSurface: number, minYear: number | undefined, hasElevator: boolean | undefined, hasParkingSpot: boolean | undefined, propertyType: "Apartment" | "House" | "", maxPrice: number | undefined): PropertyPostDTO[] {
+  transform(propertyPosts: PropertyPostDTO[], city: string, numberOfRooms: number, numberOfBathrooms: number, 
+    minSurface: number, minYear: number | undefined, hasElevator: boolean | undefined, hasParkingSpot: boolean | undefined,
+     propertyType: "Apartment" | "House" | "", maxPrice: number | undefined): PropertyPostDTO[] 
+     {
     
     if (city && city != "All") {
         propertyPosts = propertyPosts.filter( propertyPost => propertyPost.city?.includes(city));

@@ -17,7 +17,7 @@ export class UsersManagementComponent implements OnInit {
 
   public isOpenChangeRoleDialog: boolean = false;
 
-  public userToEdit: {id: number, role: string} = {id: 0 , role: ""};
+  public userToEdit: {userId: number, role: string} = {userId: 0 , role: ""};
   
   public role: string = "";
 
@@ -67,7 +67,7 @@ export class UsersManagementComponent implements OnInit {
 
   public handleChangeRole() {
     this.userToEdit.role = this.role;
-    this.userService.changeRole(this.userToEdit.id, this.userToEdit.role)
+    this.userService.changeRole(this.userToEdit.userId, this.userToEdit.role)
       .subscribe(
         (res) => {
           this.isOpenChangeRoleDialog = false;
@@ -82,7 +82,7 @@ export class UsersManagementComponent implements OnInit {
 
   public openChangeRoleDialog(id: number, role: string): void {
     this.role = role;
-    this.userToEdit.id = id;
+    this.userToEdit.userId = id;
     this.userToEdit.role = role;
     this.isOpenChangeRoleDialog = true;
   }
