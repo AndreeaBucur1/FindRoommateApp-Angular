@@ -8,11 +8,12 @@
     border: 1px solid rgb(217, 217, 217);
     height: 20em;
     display: block;
-    width: 94em;
+    width: 78em;
+    margin-left: 7em;
 }
 
 .post-box:hover {
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(217, 228, 243);
 }
 
 .page {
@@ -44,8 +45,12 @@
     float: right;
     margin-left: 25em;
     margin-top: -10em;
-    width: 60em;
+    width: 50em;
     height: 10em;
+    background-color: rgb(168, 210, 245);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
 }
 
 .filters {
@@ -59,4 +64,13 @@
     font-size: 30px;
     position: relative;
     top: -30px;
+}
+
+.top-buttons {
+    margin-left: 7em;
+}
+
+.top-filters {
+    margin-left: 7em;
+
 }

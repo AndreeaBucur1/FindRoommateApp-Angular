@@ -13,11 +13,12 @@ import { RoommatePostsComponent } from './roommate-posts/roommate-posts.componen
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { RoommatePostDetailsComponent } from './roommate-posts/roommate-post-details/roommate-post-details.component';
+import { HomeComponent } from './home/home.component';
  
 const routes: Routes = [
   {
     path:'',
-    component: LoginComponent
+    component: HomeComponent
   },
   {
     path:'login',
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path: 'roommate-post-details/:username',
     component: RoommatePostDetailsComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
 

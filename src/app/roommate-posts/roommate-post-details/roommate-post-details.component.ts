@@ -13,6 +13,8 @@ export class RoommatePostDetailsComponent implements OnInit {
 
 	public user: UserDTO = {};
 
+	public src: string = "";
+
 	constructor(
 		private activatedRoute: ActivatedRoute,
 		private userService: UsersService,
@@ -32,6 +34,7 @@ export class RoommatePostDetailsComponent implements OnInit {
 			(user) => {
 				this.user = user;
 				console.log(user);
+				this.src ="data:image/png;base64," + user.profilePhoto;
 				
 			},
 			(err) => {

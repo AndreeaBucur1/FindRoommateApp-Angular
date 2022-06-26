@@ -62,11 +62,20 @@
 }
 
 .description {
-    width: 60em;
-    height: 10em;
+    width: 50em;
+    height: 13em;
+    background-color: rgb(142, 195, 238);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
 }
 
 .more-info {
     margin-left: 10px;
     color: rgb(33,150,243);
+}
+
+.upload-image-button {
+    margin-top: -3em;
+    margin-left: 1em;
 }

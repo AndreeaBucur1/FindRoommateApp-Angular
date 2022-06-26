@@ -47,16 +47,19 @@ export class UsersService {
 		return this.httpClient.get<UserDTO>(`${this.baseUrl}/user/${username}`, this.getOptions());
 	}
 
-	public uploadProfilePhoto(id: number, imageFile: File) {
-		console.log(imageFile);
-		
+	public uploadProfilePhoto(id: number, imageFile: any) {
 		const formData = new FormData();
 		formData.append('imageFile', imageFile);
-		const options = this.getOptions();
-		options.headers['Content-Type'] =  'multipart/form-data';
-		console.log(formData);
-		
-		return this.httpClient.put(this.baseUrl + '/' + id + '/image', formData, options);
+		return this.httpClient.put(
+			this.baseUrl + '/' + id + '/image', 
+			formData, 
+			{
+				headers: {
+					"Authorization": `Bearer ${sessionStorage.getItem('token')}`,
+					'Access-Control-Allow-Origin': '*',
+				}
+			}
+		);
 	}
 
 

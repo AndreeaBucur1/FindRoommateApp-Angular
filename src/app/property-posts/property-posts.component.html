@@ -1,4 +1,5 @@
 <br><br>
+<div class="top-filters">
 Filters <span ><mat-icon  (click)="updateFiltersActive()">filter_list</mat-icon></span>
 <br><br>
 <div *ngIf="filtersActive" >
@@ -18,22 +19,21 @@ Maximum price <input type="number" [(ngModel)]="maxPriceFilter" min="0" class="p
 <br><br>
 <p-checkbox name="groupname" [binary]="true" [(ngModel)]="hasElevatorFilter"></p-checkbox> Elevator
 <p-checkbox name="groupname" [binary]="true" [(ngModel)]="hasParkingSpotFilter"></p-checkbox> Parking spot
-    
 </div>
-<button pButton pRipple type="button" label="Add property" class="p-button-sm p-button-raised " (click)="openForm()"
-    style="float:right;"></button>
+<br>
+<button pButton pRipple type="button" label="Add property" class="p-button-sm p-button-raised " (click)="openForm()"></button>
+</div>
 
-<br><br>
 <ng-container
     *ngFor="let propertyPost of propertyPosts | filterPropertyPosts : cityFilter : numberOfRoomsFilter : numberOfBathroomsFilter : minSurfaceFilter : minYearFilter : hasElevatorFilter : hasParkingSpotFilter : propertyTypeFilter : maxPriceFilter">
     <br>
     <div class="post-box">
-        <ng-container class="property-photo" *ngIf="!propertyPost.photo">
+        <ng-container class="property-photo" *ngIf="!propertyPost.mainImage">
             <img class="property-photo"
                 src="https://wearehpi.org/wp-content/uploads/2017/07/No-Photo-Available-Image.jpg" />
         </ng-container>
-        <ng-container class="property-photo" *ngIf="propertyPost.photo">
-            <img src="{'data:image/png;base64', + propertyPost.photo}" />
+        <ng-container class="property-photo" *ngIf="propertyPost.mainImage">
+            <img class="property-photo" src="{{propertyPost.mainImage}}" />
         </ng-container>
         <h1 class="post-title">{{propertyPost.title}}</h1>
         <h3 class="location">
@@ -47,12 +47,12 @@ Maximum price <input type="number" [(ngModel)]="maxPriceFilter" min="0" class="p
             <div> Built in {{propertyPost.buildYear}}&nbsp; </div>
         </div>
         <div class="post-info">
-            <h5> Posted by <a href="">{{propertyPost.user?.username}}</a> </h5>
+            <h5> Posted by {{propertyPost.user?.username}} </h5>
             <h5>{{propertyPost.creationDate}}</h5>
         </div>
         <h2 class="price">{{propertyPost.price}} EUR</h2>
         <div class="buttons">
-            <button pButton pRipple type="button" label="Contact owner" (click)="openContactForm(propertyPost.user!.username!)" class="p-button-raised p-button-text"></button>
+            <button pButton pRipple type="button" label="Contact owner" (click)="openContactForm(propertyPost.user!.username!)" class="p-button-raised" style="background-color:rgb(255, 255, 255); color:rgb(33,150,243);"></button>
             &nbsp;
             <button pButton pRipple type="button" label="View details" class="p-button-raised"
                 [routerLink]="['','post',propertyPost.id]"></button>

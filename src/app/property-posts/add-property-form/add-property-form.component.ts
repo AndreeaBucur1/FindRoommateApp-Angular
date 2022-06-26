@@ -5,6 +5,7 @@ import { UserDTO } from 'src/app/shared/dtos/user.dto';
 import { PropertyPostsService } from '../../shared/services/property-posts.service';
 import { PropertyPostDTO } from '../../shared/dtos/property-post.dto';
 import { cities } from 'src/app/shared/constants/app.constants';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-add-property-form',
@@ -100,7 +101,8 @@ export class AddPropertyFormComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private propertyPostsService: PropertyPostsService,
-		private userService: UsersService
+		private userService: UsersService,
+		private router: Router
 	) {
 		if (this.cities[0].name === "All"){
 			this.cities.shift();
@@ -125,6 +127,8 @@ export class AddPropertyFormComponent implements OnInit {
 								(res) => {
 									this.closeFormEvent.emit();
 									this.reloadPostsEvent.emit();
+									this.router.navigate(["", "post", res.id]);
+									
 								},
 								(err) => {
 									console.log(err);

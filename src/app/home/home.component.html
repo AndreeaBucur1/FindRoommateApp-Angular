@@ -1,1 +1,26 @@
-<p>home works!</p>
+
+<img class="home-image" src="https://i.pinimg.com/originals/c0/89/47/c08947dc28e78509184e72692c5d6a26.png"/>
+
+<div class="info">
+    <br><br>
+    <div class="info-text">
+        <h1> Welcome to our website! </h1>
+        <br>
+        <h3> Here you can post your properties that you want to sell or rent, you cand find a place to live or you can find a person to live with. We hope you will have a great experience! <br> Please contact us if you encounter any problem.</h3>
+    </div>
+    <div *ngIf="!isConnected" class="login">
+        <h3>
+
+            Login to your account in order to navigate through the website. If you don't have an accout, you can create one.
+            <br><br>
+            <button pButton pRipple type="button" [routerLink]="['','login']" label="Login" class="p-button-sm p-button-raised "></button>
+            &nbsp;
+            <button pButton pRipple type="button" [routerLink]="['','register']" label="Sign up" class="p-button-sm p-button-raised "></button>
+        </h3>
+    </div>
+    <div class="photos">
+        <img class="roommates-photo" src="https://townsquare.media/site/712/files/2019/01/Roommates-High-Fiving.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89"/>
+        &nbsp; &nbsp;
+        <img class="rent-photo" src="https://th.bing.com/th/id/R.320f1aadabb2418e07e4a79b4d1c0cfe?rik=6UhuxLuijXlvoA&riu=http%3a%2f%2fclipart-library.com%2fimage_gallery%2f345644.jpg&ehk=zWtMRYG3ld5Sak%2flCfs6oBUyIxtdAOBIHgg4l9dqlJs%3d&risl=&pid=ImgRaw&r=0"/>
+    </div>
+</div>

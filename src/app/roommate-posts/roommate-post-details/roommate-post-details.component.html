@@ -8,7 +8,7 @@ class="p-button-raised "></button>
     <img class="profile-photo" src="https://i.pinimg.com/originals/38/73/8a/38738a636a8845b569b2388a505a51d6.png" />
 </ng-container>
 <ng-container class="profile-photo" *ngIf="user.profilePhoto">
-    <img src="{'data:image/png;base64', + user.profilePhoto}" />
+    <img class="profile-photo" src="{{src}}" />
 </ng-container>
 <div class="info">
     <h3>{{user.firstName}} {{user.lastName}}, {{user.roommatePost?.hasAge}} years old</h3>

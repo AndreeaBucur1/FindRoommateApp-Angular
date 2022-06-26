@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public isConnected: boolean = false;
+
+  constructor() {
+    if (sessionStorage.getItem("token")) {
+      this.isConnected = true;
+    }
+   }
 
   ngOnInit(): void {
   }

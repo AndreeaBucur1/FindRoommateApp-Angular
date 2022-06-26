@@ -17,6 +17,7 @@ export class PropertyPostDTO {
 	public creationDate?: Date | string;
 	public user?: UserDTO;
 	public city?: string;
+	public mainImage?: string;
 	public photo?: string;
 
 }

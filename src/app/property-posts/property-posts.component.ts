@@ -61,6 +61,9 @@ export class PropertyPostsComponent implements OnInit {
 					for (let propertyPost of this.propertyPosts) {
 						propertyPost.user = this.userService.userMapper(propertyPost.user);
 						propertyPost.creationDate = propertyPost.creationDate?.toLocaleString().substring(0,10);
+						if (propertyPost.mainImage) {
+							propertyPost.mainImage =  "data:image/png;base64," + propertyPost.mainImage;
+						}
 					}
 				},
 				(err) => {

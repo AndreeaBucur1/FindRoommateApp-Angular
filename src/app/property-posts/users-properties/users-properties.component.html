@@ -2,12 +2,12 @@
 <ng-container *ngFor="let propertyPost of propertyPosts ">
     <br>
     <div class="post-box">
-        <ng-container class="property-photo" *ngIf="!propertyPost.photo">
+        <ng-container class="property-photo" *ngIf="!propertyPost.mainImage">
             <img class="property-photo"
                 src="https://wearehpi.org/wp-content/uploads/2017/07/No-Photo-Available-Image.jpg" />
         </ng-container>
-        <ng-container class="property-photo" *ngIf="propertyPost.photo">
-            <img src="{'data:image/png;base64', + propertyPost.photo}" />
+        <ng-container class="property-photo" *ngIf="propertyPost.mainImage">
+            <img class="property-photo" src="{{propertyPost.mainImage}}" />
         </ng-container>
         <h1 class="post-title">{{propertyPost.title}}</h1>
         <h3 class="location">

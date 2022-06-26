@@ -1,56 +1,72 @@
 <br><br>
-<button pButton pRipple type="button" label="Back to all posts"
-[routerLink]="['', type]"
-class="p-button-raised "></button>
+<button pButton pRipple type="button" label="Back to all posts" [routerLink]="['', type]"
+	class="p-button-raised "></button>
 <br><br>
-<ng-container class="property-photo" *ngIf="!propertyPost?.photo">
-    <img class="property-photo"
-        src="https://wearehpi.org/wp-content/uploads/2017/07/No-Photo-Available-Image.jpg" />
+<ng-container class="property-photo" *ngIf="!propertyPost?.mainImage">
+	<img class="property-photo" src="https://wearehpi.org/wp-content/uploads/2017/07/No-Photo-Available-Image.jpg" />
 </ng-container>
-<ng-container class="property-photo" *ngIf="propertyPost?.photo">
-    <img src="{'data:image/png;base64', + propertyPost?.photo}" />
+<ng-container class="property-photo" *ngIf="propertyPost?.mainImage">
+	<img class="property-photo" src="{{src}}" />
 </ng-container>
+<div class="upload-image-button">
+	<button pButton pRipple type="button" title="Change main photo" (click)="openFileUploadDialog()"
+		icon="pi pi-upload" class="p-button-raised p-button-rounded "></button>
+</div>
 <h1 class="post-title">{{propertyPost?.title}}</h1>
 <h3 class="location">
-    <mat-icon>location_on</mat-icon>{{propertyPost?.city}}
+	<mat-icon>location_on</mat-icon>{{propertyPost?.city}}
 </h3>
 <div class="info">
-    <div> &nbsp;{{propertyPost?.propertyType}} &nbsp;| </div>
-    <div> &nbsp;{{propertyPost?.numberOfRooms}} rooms &nbsp;| </div>
-    <div> {{propertyPost?.numberOfBathrooms}} bathrooms &nbsp;| </div>
-    <div> {{propertyPost?.surface}} m2 &nbsp;| </div>
-    <div> Built in {{propertyPost?.buildYear}}&nbsp; </div>
+	<div> &nbsp;{{propertyPost?.propertyType}} &nbsp;| </div>
+	<div> &nbsp;{{propertyPost?.numberOfRooms}} rooms &nbsp;| </div>
+	<div> {{propertyPost?.numberOfBathrooms}} bathrooms &nbsp;| </div>
+	<div> {{propertyPost?.surface}} m2 &nbsp;| </div>
+	<div> Built in {{propertyPost?.buildYear}}&nbsp; </div>
 </div>
 <div class="post-info">
-    <h5> Posted by <a href="">{{propertyPost?.user?.username}}</a> </h5>
-    <h5>{{propertyPost?.creationDate}}</h5>
+	<h5> Posted by {{propertyPost?.user?.username}} </h5>
+	<h5>{{propertyPost?.creationDate}}</h5>
 </div>
-<h2 class="price">{{propertyPost?.price}} EUR {{propertyPost?.isForSale ? "for sale" : "for rent"}}</h2> 
+<h2 class="price">{{propertyPost?.price}} EUR {{propertyPost?.isForSale ? "for sale" : "for rent"}}</h2>
 <br>
 <hr>
 
 <div class="more-info">
-    <h3>More about the {{propertyPost?.propertyType | lowercase}}</h3>
-    <br>
-    <div *ngIf="propertyPost?.propertyType === 'Apartment'">
-        Floor: {{propertyPost?.floor}}
-        <br>
-        {{propertyPost?.hasElevator ? "The building has elevator" : "The building does not have elevator"}}
-        <br>
-        {{propertyPost?.hasParkingSpot ? "The building has parking spot" : "The building does not have parking spot"}}
-        <br><br>
-        <textarea [disabled]=true class="description">
+	<h3>More about the {{propertyPost?.propertyType | lowercase}}</h3>
+	<br>
+	<div *ngIf="propertyPost?.propertyType === 'Apartment'">
+		Floor: {{propertyPost?.floor}}
+		<br>
+		{{propertyPost?.hasElevator ? "The building has elevator" : "The building does not have elevator"}}
+		<br>
+		{{propertyPost?.hasParkingSpot ? "The building has parking spot" : "The building does not have parking spot"}}
+		<br><br>
+		<textarea [disabled]=true class="description">
+			&NewLine;
             {{propertyPost?.description}}
         </textarea>
-    </div>
+	</div>
 </div>
 <br><br>
 <hr>
+
+<br>
+<button pButton pRipple type="button" label="Add picture" class="p-button-raised "></button>
+<hr>
+
 <div class="more-info">
-    <h3>Are you interested in this {{propertyPost?.propertyType}}? Contact the owner!</h3>
-    <br>
-    <mat-icon> phone</mat-icon> {{propertyPost?.user?.phoneNumber}}
-    <br><br>
-    <mat-icon> email</mat-icon> {{propertyPost?.user?.email}}
+	<h3>Are you interested in this {{propertyPost?.propertyType}}? Contact the owner!</h3>
+	<br>
+	<mat-icon> phone</mat-icon> {{propertyPost?.user?.phoneNumber}}
+	<br><br>
+	<mat-icon> email</mat-icon> {{propertyPost?.user?.email}}
 </div>
-<br><br><br><br>
+<br><br><br>
+
+
+<br><br>
+
+<p-dialog header="Upload profile picture" [(visible)]="isOpenUploadFileDialog" class="upload-image-button">
+    <app-upload-profile-picture (onUploadImage)="uploadImage($event)">
+    </app-upload-profile-picture>
+</p-dialog>

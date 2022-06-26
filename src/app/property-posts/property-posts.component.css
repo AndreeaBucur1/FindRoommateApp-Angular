@@ -9,10 +9,12 @@
     height: 20em;
     display: block;
     border-radius: 4px;
+    width: 78em;
+    margin-left: 7em;
 }
 
 .post-box:hover {
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(217, 228, 243);
 }
 
 .post-title {
@@ -59,4 +61,8 @@
     float: right;
     margin: 3em;
     margin-top: -4em;
+}
+
+.top-filters {
+    margin-left: 7em;
 }

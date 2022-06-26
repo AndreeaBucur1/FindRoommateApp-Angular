@@ -1,0 +1,51 @@
+.home-image {
+    width: 100%;
+    /* opacity: 0.6; */
+    /* position: absolute; */
+}
+.info {
+    background-color: rgb(255, 255, 255);
+    z-index: 100;
+    width: 100%;
+    margin-top: -25em;
+    height: 25em;
+    color: rgb(141, 72, 31);
+    font-weight: bold;
+    font-size: large;
+    position: absolute;
+
+}
+
+.info h1 {
+    margin-left: 3em;
+}
+
+.info h3 {
+    margin-left: 3em;
+}
+
+.info-text {
+    width: 30em;
+}
+
+.login {
+    width: 30em;
+    color: rgb(141, 72, 31);
+    font-weight: bold;
+    font-size: large;
+    position: absolute;
+
+}
+
+.photos {
+    float: right;
+    margin-top: -13em;
+}
+
+.roommates-photo {
+    height: 12em;
+}
+
+.rent-photo {
+    height: 12em;
+}

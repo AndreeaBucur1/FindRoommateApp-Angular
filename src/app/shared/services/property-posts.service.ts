@@ -50,4 +50,34 @@ export class PropertyPostsService {
 		return this.http.delete(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 
+	public uploadPhoto(id: number, imageFile: any) {
+		const formData = new FormData();
+		formData.append('imageFile', imageFile);
+		return this.http.put(
+			this.baseUrl + '/' + id + '/image',
+			formData,
+			{
+				headers: {
+					"Authorization": `Bearer ${sessionStorage.getItem('token')}`,
+					'Access-Control-Allow-Origin': '*',
+				}
+			}
+		)
+	}
+
+	public uploadMainImage(id: number, imageFile: any) {
+		const formData = new FormData();
+		formData.append('imageFile', imageFile);
+		return this.http.put(
+			this.baseUrl + '/' + id + '/main-image',
+			formData,
+			{
+				headers: {
+					"Authorization": `Bearer ${sessionStorage.getItem('token')}`,
+					'Access-Control-Allow-Origin': '*',
+				}
+			}
+		)
+	}
+
 }

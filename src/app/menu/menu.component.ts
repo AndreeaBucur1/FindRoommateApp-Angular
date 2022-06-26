@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
 			if (event instanceof NavigationEnd) {
 
 				this.items = [
-					{ label: "Home", routerLink: "/login" }
+					{ label: "Home", routerLink: "/home" }
 				]
 				if (sessionStorage.getItem('role') !== null) {
 					this.prepareMenuForConnectedUser();

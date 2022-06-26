@@ -12,7 +12,11 @@ export class PropertyDetailsComponent implements OnInit {
 
 	public propertyPost?: PropertyPostDTO;
 
+	public isOpenUploadFileDialog = false;
+
 	public type: "sale" | "rent" = "sale";
+
+	public src: string = "";
 
 	constructor(
 		private propertyPostsService: PropertyPostsService,
@@ -38,10 +42,27 @@ export class PropertyDetailsComponent implements OnInit {
 				}
 				propertyPost.creationDate = propertyPost.creationDate?.toLocaleString().substring(0,10);
 				this.propertyPost = propertyPost;
-				console.log(this.propertyPost);
+				if (propertyPost.mainImage) {
+					this.src ="data:image/png;base64," + propertyPost.mainImage;
+				}
 				
 			}
 		)
+  }
+
+  public openFileUploadDialog() {
+	  this.isOpenUploadFileDialog = true;
+  }
+
+  public uploadImage(event: any) {
+		this.propertyPostsService.uploadMainImage(this.propertyPost!.id!, event)
+			.subscribe(
+				(res) => {
+					this.getPropertyPost(this.propertyPost!.id!);
+					this.isOpenUploadFileDialog = false;
+					window.location.reload();
+				}
+			)
   }
 
 }

@@ -27,6 +27,7 @@ export class RoommatePostsComponent implements OnInit {
 	public genderFilter: "Any" | "Female" | "Male" = "Any";
 	public notSmokerFilter: boolean = false;
 	public noPetsFilter: boolean = false;
+	public filtersActive: boolean = false;
 
 	public cities = [...cities];
 
@@ -56,6 +57,11 @@ export class RoommatePostsComponent implements OnInit {
 					this.matchingScoreDTOs = [];
 					this.roommatePosts = res;	
 					console.log(this.roommatePosts);
+					for (let roommatePost of this.roommatePosts) {
+						if (roommatePost.user!.profilePhoto) {
+							roommatePost.user!.profilePhoto = "data:image/png;base64," + roommatePost.user!.profilePhoto;
+						}
+					}
 					
 				},
 				(err) => {
@@ -84,6 +90,9 @@ export class RoommatePostsComponent implements OnInit {
 						let roommatePost = matchingScoreDTO.roommatePostDTO;
 						roommatePost.score = matchingScoreDTO.score;
 						this.roommatePosts.push(roommatePost);
+						if (roommatePost.user!.profilePhoto) {
+							roommatePost.user!.profilePhoto = "data:image/png;base64," + roommatePost.user!.profilePhoto;
+						}
 					}					
 				},
 				(err) => {
@@ -101,6 +110,10 @@ export class RoommatePostsComponent implements OnInit {
 	public closeForm(): void {
 		this.isOpenForm = false;
 		this.getRoommatePosts();
+	}
+
+	public updateFiltersActive(): void {
+		this.filtersActive = !this.filtersActive;
 	}
 
 }

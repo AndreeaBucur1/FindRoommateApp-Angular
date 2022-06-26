@@ -42,6 +42,7 @@ import { RoommatePostsComponent } from './roommate-posts/roommate-posts.componen
 import { FilterRoommatePostsPipe } from './shared/pipes/filter-roommate-posts.pipe';
 import { RoommatePostDetailsComponent } from './roommate-posts/roommate-post-details/roommate-post-details.component';
 import { HomeComponent } from './home/home.component';
+import { UploadPropertyPhotosComponent } from './property-posts/upload-property-photos/upload-property-photos.component';
 
 @NgModule({
 	declarations: [
@@ -65,7 +66,8 @@ import { HomeComponent } from './home/home.component';
 		RoommatePostsComponent,
 		FilterRoommatePostsPipe,
 		RoommatePostDetailsComponent,
-		HomeComponent
+		HomeComponent,
+  UploadPropertyPhotosComponent
 	],
 	imports: [
 		BrowserModule,
