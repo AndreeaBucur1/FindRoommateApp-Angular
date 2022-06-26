@@ -64,8 +64,8 @@
 .description {
     width: 50em;
     height: 13em;
-    background-color: rgb(142, 195, 238);
-    color: white;
+    background-color: rgb(236, 232, 215);
+    color: rgb(79, 153, 221);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     border-radius: 10px;
