@@ -50,6 +50,10 @@ export class PropertyPostsService {
 		return this.http.delete(`${this.baseUrl}/${id}`, this.getOptions());
 	}
 
+	public getPhotos(id: number) {
+		return this.http.get<string[]>(`${this.baseUrl}/get-photos/${id}`, this.getOptions());
+	}
+
 	public uploadPhoto(id: number, imageFile: any) {
 		const formData = new FormData();
 		formData.append('imageFile', imageFile);

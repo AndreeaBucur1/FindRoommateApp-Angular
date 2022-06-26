@@ -68,6 +68,7 @@
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 .more-info {

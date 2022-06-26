@@ -51,7 +51,12 @@
 <hr>
 
 <br>
-<button pButton pRipple type="button" label="Add picture" class="p-button-raised "></button>
+<button pButton pRipple type="button" label="Add picture" (click)="openAddPhoto()" class="p-button-raised "></button>
+<br><br>
+
+<ng-container *ngFor="let photo of photos">
+	<img style="width: 30em;" src="{{photo}}"/>
+</ng-container>
 <hr>
 
 <div class="more-info">
@@ -68,5 +73,10 @@
 
 <p-dialog header="Upload profile picture" [(visible)]="isOpenUploadFileDialog" class="upload-image-button">
     <app-upload-profile-picture (onUploadImage)="uploadImage($event)">
+    </app-upload-profile-picture>
+</p-dialog>
+
+<p-dialog header="Upload profile picture" [(visible)]="isOpenAddPictureDialog" class="upload-image-button">
+    <app-upload-profile-picture (onUploadImage)="addImage($event)">
     </app-upload-profile-picture>
 </p-dialog>
